@@ -1,0 +1,1 @@
+import{d as u,b as l,a as c,aJ as p,aK as d,f as a,a2 as i}from"./index.7f99550f.js";const m=u({name:"redirect",setup(){const r=l(),n=c();p(()=>{const{params:o,query:s}=r,{path:e}=o;let t="";e&&e.length>0&&(t=e.join("/")),n.replace({path:"/"+t,query:s})})},render(){return d(a(i,null,null),{},a("div",null,null))}});export{m as default};
