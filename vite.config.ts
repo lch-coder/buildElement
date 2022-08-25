@@ -10,6 +10,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/buildElement/',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
