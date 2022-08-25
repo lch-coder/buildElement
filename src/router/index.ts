@@ -24,7 +24,7 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/buildElement/'),
   routes,
 })
 
