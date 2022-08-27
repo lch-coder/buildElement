@@ -22,6 +22,7 @@ specifiers:
   eslint-plugin-vue: ^9.1.1
   lodash-es: ^4.17.21
   mockjs: ^1.1.0
+  monaco-editor: ^0.34.0
   nprogress: ^0.2.0
   pinia: ^2.0.14
   pinia-plugin-persistedstate: ^1.6.1
@@ -30,7 +31,7 @@ specifiers:
   typescript: ^4.5.4
   unocss: ^0.43.0
   unplugin-auto-import: ^0.9.2
-  unplugin-vue-components: ^0.21.0
+  unplugin-vue-components: 0.22.4
   vite: ^3.0.9
   vite-plugin-eslint: ^1.6.1
   vite-plugin-mock: ^2.9.6
@@ -45,6 +46,7 @@ dependencies:
   axios: 0.27.2
   element-plus: 2.2.14_vue@3.2.37
   lodash-es: 4.17.21
+  monaco-editor: 0.34.0
   nprogress: 0.2.0
   pinia: 2.0.20_j6bzmzd4ujpabbp5objtwxyjp4
   pinia-plugin-persistedstate: 1.6.3_pinia@2.0.20
@@ -74,7 +76,7 @@ devDependencies:
   typescript: 4.7.4
   unocss: 0.43.2_vite@3.0.9
   unplugin-auto-import: 0.9.5_cjfb2vuyppa4z267klnp6hax3q
-  unplugin-vue-components: 0.21.2_vite@3.0.9+vue@3.2.37
+  unplugin-vue-components: 0.22.4_vite@3.0.9+vue@3.2.37
   vite: 3.0.9_sass@1.54.5
   vite-plugin-eslint: 1.8.1_eslint@8.22.0+vite@3.0.9
   vite-plugin-mock: 2.9.6_mockjs@1.1.0+vite@3.0.9
@@ -3645,6 +3647,10 @@ packages:
       commander: 9.4.0
     dev: true
 
+  /monaco-editor/0.34.0:
+    resolution: {integrity: sha512-VF+S5zG8wxfinLKLrWcl4WUizMx+LeJrG4PM/M78OhcwocpV0jiyhX/pG6Q9jIOhrb/ckYi6nHnaR5OojlOZCQ==}
+    dev: false
+
   /mrmime/1.0.1:
     resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
     engines: {node: '>=10'}
@@ -4461,8 +4467,8 @@ packages:
       - webpack
     dev: true
 
-  /unplugin-vue-components/0.21.2_vite@3.0.9+vue@3.2.37:
-    resolution: {integrity: sha512-HBU+EuesDj/HRs7EtYH7gBACljVhqLylltrCLModRmCToIIrrNvMh54aylUt4AD4qiwylgOx4Vgb9sBlrIcRDw==}
+  /unplugin-vue-components/0.22.4_vite@3.0.9+vue@3.2.37:
+    resolution: {integrity: sha512-2rRZcM9OnJGXnYxQNfaceEYuPeVACcWySIjy8WBwIiN3onr980TmA3XE5pRJFt8zoQrUA+c46oyIq96noLqrEQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/parser': ^7.15.8
@@ -4480,7 +4486,7 @@ packages:
       magic-string: 0.26.2
       minimatch: 5.1.0
       resolve: 1.22.1
-      unplugin: 0.7.2_vite@3.0.9
+      unplugin: 0.9.5_vite@3.0.9
       vue: 3.2.37
     transitivePeerDependencies:
       - esbuild
@@ -4492,6 +4498,30 @@ packages:
 
   /unplugin/0.7.2_vite@3.0.9:
     resolution: {integrity: sha512-m7thX4jP8l5sETpLdUASoDOGOcHaOVtgNyrYlToyQUvILUtEzEnngRBrHnAX3IKqooJVmXpoa/CwQ/QqzvGaHQ==}
+    peerDependencies:
+      esbuild: '>=0.13'
+      rollup: ^2.50.0
+      vite: ^2.3.0 || ^3.0.0-0
+      webpack: 4 || 5
+    peerDependenciesMeta:
+      esbuild:
+        optional: true
+      rollup:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
+    dependencies:
+      acorn: 8.8.0
+      chokidar: 3.5.3
+      vite: 3.0.9_sass@1.54.5
+      webpack-sources: 3.2.3
+      webpack-virtual-modules: 0.4.4
+    dev: true
+
+  /unplugin/0.9.5_vite@3.0.9:
+    resolution: {integrity: sha512-luraheyfxwtvkvHpsOvMNv7IjLdORTWKZp0gWYNHGLi2ImON3iIZOj464qEyyEwLA/EMt12fC415HW9zRpOfTg==}
     peerDependencies:
       esbuild: '>=0.13'
       rollup: ^2.50.0

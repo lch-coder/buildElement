@@ -29,6 +29,13 @@ export default [
                 path: '/dashboard/monitor',
                 component: 'dashboard/monitor.vue',
               },
+              {
+                title: 'monaco-editor编辑器',
+                icon: '',
+                name: 'monacoEditor',
+                path: '/dashboard/monacoEditor',
+                component: 'dashboard/monacoEditor.vue',
+              },
             ],
           },
           {
