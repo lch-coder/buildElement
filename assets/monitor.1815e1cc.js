@@ -1,1 +1,0 @@
-import{d as e,o as t,c as n,ad as a,a4 as r}from"./index.5c7c0b2c.js";const m=e({__name:"monitor",setup(s){const o=Date.now();return console.log("monitor date",o),(c,i)=>(t(),n("div",null,"Monitor - "+a(r(o)),1))}});export{m as default};
