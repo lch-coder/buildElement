@@ -4,7 +4,7 @@
       <el-sub-menu :index="menu.path" :key="menu.path">
         <template #title>
           <el-icon><i :class="menu.icon"></i></el-icon>
-          <span>{{ menu.title }}</span>
+          <span truncate>{{ menu.title }}</span>
         </template>
         <menu-tree :menus="menu.children"></menu-tree>
       </el-sub-menu>
@@ -12,7 +12,7 @@
     <template v-else>
       <el-menu-item :index="menu.path" :key="menu.path" @click="clickMenu(menu)">
         <el-icon><i :class="menu.icon"></i></el-icon>
-        <span>{{ menu.title }}</span>
+        <span truncate>{{ menu.title }}</span>
       </el-menu-item>
     </template>
   </template>
@@ -48,11 +48,11 @@ const clickMenu = (menu: any) => {
 <style lang="scss" scoped>
 .el-sub-menu {
   .el-menu {
-    background-color: #000c17;
+    // background-color: #000c17;
   }
 }
 
 .el-menu-item.is-active {
-  background-color: #409eff;
+  // background-color: #409eff;
 }
 </style>

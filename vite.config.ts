@@ -16,17 +16,6 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
-  // 强制预构建插件包
-  optimizeDeps: {
-    include: [
-      'monaco-editor/esm/vs/language/json/json.worker',
-      'monaco-editor/esm/vs/language/css/css.worker',
-      'monaco-editor/esm/vs/language/html/html.worker',
-      'monaco-editor/esm/vs/language/typescript/ts.worker',
-      'monaco-editor/esm/vs/editor/editor.worker',
-    ],
-  },
-
   plugins: [
     vue(),
     vueJsx(),
@@ -56,4 +45,9 @@ export default defineConfig({
       injectCode: ` import { setupProdMockServer } from './mockProdServer'; setupProdMockServer(); `,
     }),
   ],
+  server: {
+    host: '0.0.0.0',
+    open: true,
+    port: 4646,
+  },
 })

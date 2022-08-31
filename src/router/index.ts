@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-
+import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
 import { getLocalStorage } from '@/utils/storage'
 import { addRoutes } from './route'
 
@@ -28,18 +28,17 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach(async (to: any, from, next) => {
+router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
   const processStore = useProcessStore()
   processStore.addProcess({
-    label: to.meta.title || to.name,
+    label: (to.meta.title || to.name) as string,
     value: to.fullPath,
-    name: to.name,
+    name: to.name as string,
     active: true,
   })
   NProgress.start()
   // token存在
   if (getLocalStorage('token')) {
-    console.log('token存在')
     const menuStore = useMenuStore()
     if (to.path === '/login') {
       // 存在token并且跳转到登录页，默认跳转进项目有权限的第一个菜单
@@ -67,7 +66,9 @@ router.beforeEach(async (to: any, from, next) => {
   }
 })
 
-router.afterEach(() => {
+router.afterEach((to: RouteLocationNormalized) => {
+  // 设置document title
+  useTitle(to.meta.title as string)
   NProgress.done() // 进度条结束
 })
 

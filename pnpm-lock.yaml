@@ -15,6 +15,7 @@ specifiers:
   '@vue/eslint-config-prettier': ^7.0.0
   '@vueuse/core': ^8.7.5
   axios: ^0.27.2
+  better-scroll: ^2.4.2
   element-plus: ^2.2.8
   eslint: ^8.19.0
   eslint-config-prettier: ^8.5.0
@@ -27,6 +28,7 @@ specifiers:
   pinia: ^2.0.14
   pinia-plugin-persistedstate: ^1.6.1
   prettier: ^2.7.1
+  rollup: ^2.78.1
   sass: ^1.53.0
   typescript: ^4.5.4
   unocss: ^0.43.0
@@ -44,12 +46,14 @@ dependencies:
   '@unocss/reset': 0.44.7
   '@vueuse/core': 8.9.4_vue@3.2.37
   axios: 0.27.2
+  better-scroll: 2.4.2
   element-plus: 2.2.14_vue@3.2.37
   lodash-es: 4.17.21
   monaco-editor: 0.34.0
   nprogress: 0.2.0
   pinia: 2.0.20_j6bzmzd4ujpabbp5objtwxyjp4
   pinia-plugin-persistedstate: 1.6.3_pinia@2.0.20
+  rollup: 2.78.1
   vite-plugin-pwa: 0.12.3_vite@3.0.9
   vue: 3.2.37
   vue-router: 4.1.4_vue@3.2.37
@@ -75,11 +79,11 @@ devDependencies:
   sass: 1.54.5
   typescript: 4.7.4
   unocss: 0.43.2_vite@3.0.9
-  unplugin-auto-import: 0.9.5_cjfb2vuyppa4z267klnp6hax3q
-  unplugin-vue-components: 0.22.4_vite@3.0.9+vue@3.2.37
+  unplugin-auto-import: 0.9.5_ujdqwizphxxwcpwqeazr2x3pzq
+  unplugin-vue-components: 0.22.4_6osae5vlgegmnwbw2tyjx4z6tq
   vite: 3.0.9_sass@1.54.5
   vite-plugin-eslint: 1.8.1_eslint@8.22.0+vite@3.0.9
-  vite-plugin-mock: 2.9.6_mockjs@1.1.0+vite@3.0.9
+  vite-plugin-mock: 2.9.6_2iv5ulqe5f6ipzubth4c43ik5e
   vue-tsc: 0.34.17_typescript@4.7.4
 
 packages:
@@ -1283,6 +1287,94 @@ packages:
       '@babel/helper-validator-identifier': 7.18.6
       to-fast-properties: 2.0.0
 
+  /@better-scroll/core/2.4.2:
+    resolution: {integrity: sha512-IqVZLnh04YpaEAy9wJDxtFK/stxVQjB9A9Wcr3Uwkj7Av1TtFpin+t/TObl53diNDG5ZJ+vck/OAthphpuugLA==}
+    dependencies:
+      '@better-scroll/shared-utils': 2.4.2
+    dev: false
+
+  /@better-scroll/indicators/2.4.2:
+    resolution: {integrity: sha512-dScI0HIt06L1thLO+1W7w1enqRtegWF1izKYhswiyTXLgagLh2QbAi+oexNiPSOGBuNz8w1mO7hZvVJez/ZFkw==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/infinity/2.4.2:
+    resolution: {integrity: sha512-KGpCWLTyMzcGBT59c3N/JaVauLmi0jG2YZApdnqON+Oz4AJiHnzGkzWc4EJxcxR3Vy+m5Jp91y6xrpsvRmOdIg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/mouse-wheel/2.4.2:
+    resolution: {integrity: sha512-dLc8vlYkSYN9AQEo4NDPQloPhscCV17TY98JUBcio4I2STDlYYIQqofqm1GQPfByfK9f057DnrcgZ/bPVx7PTA==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/movable/2.4.2:
+    resolution: {integrity: sha512-y4FbKx9FTUfAfM6wW+PCKA3CONc4nfjaE4N1ImGsIorzkSWV2eGO+LTD6FVv5+gVINI/o9Xj/gHmEJUaupUeSg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/nested-scroll/2.4.2:
+    resolution: {integrity: sha512-JnC2sqtDqVkj9F5J39u52b6qDsMqXbnURG67dHf97tYoYP2dluwjkvhhxjSFrghREoQzT/KWcDbkfcGy47lQwQ==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/observe-dom/2.4.2:
+    resolution: {integrity: sha512-eeS77CZs+V72dkya10e5ptndBAbhQVcXoYGvfoIihOJgCPqO5MdYTpzRmlbshYCEE5juUMLe82Kx8FSbOejpAw==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/observe-image/2.4.2:
+    resolution: {integrity: sha512-ToYVf5vn0cio5B9uaL5NyvFX3JNU6L0Po20Lw7uxa0+FE+kMvSAMJN+9POg6G+cfIqI8GVHhyyR+4Ev8v2Nl5Q==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/pull-down/2.4.2:
+    resolution: {integrity: sha512-bqMLk33o4oesTXIIOteBKHQgfVKjIVvity39TM/MfzkbY1WDBxD+HFS7ySgoqw7Kl2Wiv/U76Wfqzmm6yDdg7Q==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/pull-up/2.4.2:
+    resolution: {integrity: sha512-07Cke3oa96lN9/inxJZ0ixh0nBbbqxOi2IKcBGtD6dP+susiMcdhgd/c7zNRjXkwlw0vzTNfXTgExIOEWzLHYg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/scroll-bar/2.4.2:
+    resolution: {integrity: sha512-zZd0+sWfzTCXJeuA001o5bea7AvLYz7BCE7dolxFbPTIPnV5V5UEH8LLdXQ/HIwgxI0Pj9PoY9njSuhooh6lfg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/shared-utils/2.4.2:
+    resolution: {integrity: sha512-Gy/Jfbpu+hq0u+PcjkTqyXGqAf+0dexTzEZ5IDXEVwJVLmd3cx8A73oTcAZ8QZgk4wSHvlMjXecSaptkhnNPEw==}
+    dev: false
+
+  /@better-scroll/slide/2.4.2:
+    resolution: {integrity: sha512-VfdFHm/meo4nEyfx0JLn8rUHfQdQCnoBHs/BsV+vmjVivKg+cVgfS+QaytrIulWKqNAWNlfXbAaNtZMv8gNKZg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/wheel/2.4.2:
+    resolution: {integrity: sha512-oJw68glWbrYBbRK8RJnKo3Fw9bU7Cd4zDbBHbKZ062/YJAJUZW9wF/3Lout4PnolkjuJIp2TZiEgJNtuRd+Njg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/zoom/2.4.2:
+    resolution: {integrity: sha512-rN/BTE3lf2sNNvKowGL/tUKZ/BgdZcZa0pjE/rVW0tBL/7x68cBowWQD5HF2Z2Bge8OPXRjkwN/xN1aFYhEtWA==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
   /@ctrl/tinycolor/3.4.1:
     resolution: {integrity: sha512-ej5oVy6lykXsvieQtqZxCOaLT+xD4+QNarq78cIYISHmZXshCvROLudpQN3lfL8G0NL7plMSSK+zlyvCaIJ4Iw==}
     engines: {node: '>=10'}
@@ -1466,18 +1558,19 @@ packages:
       rollup: 2.78.1
     dev: false
 
-  /@rollup/plugin-node-resolve/13.3.0:
+  /@rollup/plugin-node-resolve/13.3.0_rollup@2.78.1:
     resolution: {integrity: sha512-Lus8rbUo1eEcnS4yTFKLZrVumLPY+YayBdWXgFSHYhTT2iJbMhoaaBL3xl5NCdeRytErGr8tZ0L71BMRmnlwSw==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       rollup: ^2.42.0
     dependencies:
-      '@rollup/pluginutils': 3.1.0
+      '@rollup/pluginutils': 3.1.0_rollup@2.78.1
       '@types/resolve': 1.17.1
       deepmerge: 4.2.2
       is-builtin-module: 3.2.0
       is-module: 1.0.0
       resolve: 1.22.1
+      rollup: 2.78.1
     dev: true
 
   /@rollup/plugin-replace/2.4.2_rollup@2.78.1:
@@ -1490,17 +1583,6 @@ packages:
       rollup: 2.78.1
     dev: false
 
-  /@rollup/pluginutils/3.1.0:
-    resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
-    engines: {node: '>= 8.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0
-    dependencies:
-      '@types/estree': 0.0.39
-      estree-walker: 1.0.1
-      picomatch: 2.3.1
-    dev: true
-
   /@rollup/pluginutils/3.1.0_rollup@2.78.1:
     resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
     engines: {node: '>= 8.0.0'}
@@ -1511,7 +1593,6 @@ packages:
       estree-walker: 1.0.1
       picomatch: 2.3.1
       rollup: 2.78.1
-    dev: false
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -2209,6 +2290,25 @@ packages:
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  /better-scroll/2.4.2:
+    resolution: {integrity: sha512-I/JzJNUay2vMAkczBa/4x52QBdUGA3Bs/QtrKrxVjSbBHUMG6yR14srQr4aCAWlIra1FBmuddwGRfI6zRagI9Q==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+      '@better-scroll/indicators': 2.4.2
+      '@better-scroll/infinity': 2.4.2
+      '@better-scroll/mouse-wheel': 2.4.2
+      '@better-scroll/movable': 2.4.2
+      '@better-scroll/nested-scroll': 2.4.2
+      '@better-scroll/observe-dom': 2.4.2
+      '@better-scroll/observe-image': 2.4.2
+      '@better-scroll/pull-down': 2.4.2
+      '@better-scroll/pull-up': 2.4.2
+      '@better-scroll/scroll-bar': 2.4.2
+      '@better-scroll/slide': 2.4.2
+      '@better-scroll/wheel': 2.4.2
+      '@better-scroll/zoom': 2.4.2
+    dev: false
 
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -4378,7 +4478,7 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /unimport/0.4.7_vite@3.0.9:
+  /unimport/0.4.7_rollup@2.78.1+vite@3.0.9:
     resolution: {integrity: sha512-V2Pbscd1VSdgWm1/OI2pjtydEOTjE7DDnHZKhpOq7bSUBc1i8+1f6PK8jI1lJ1plRDcSNr0DLtAmtU9NPkFQpw==}
     dependencies:
       '@rollup/pluginutils': 4.2.1
@@ -4390,7 +4490,7 @@ packages:
       pathe: 0.3.5
       scule: 0.2.1
       strip-literal: 0.4.0
-      unplugin: 0.7.2_vite@3.0.9
+      unplugin: 0.7.2_rollup@2.78.1+vite@3.0.9
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -4444,7 +4544,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /unplugin-auto-import/0.9.5_cjfb2vuyppa4z267klnp6hax3q:
+  /unplugin-auto-import/0.9.5_ujdqwizphxxwcpwqeazr2x3pzq:
     resolution: {integrity: sha512-CskZjMM+p/QZev7y4JgaAFrf63ui4VGS4HrDMm6VIiVjwnmQ0wPugo58GGhYa+W2Hyv6zGffYO6uYHfeVlDZDA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -4458,8 +4558,8 @@ packages:
       '@vueuse/core': 8.9.4_vue@3.2.37
       local-pkg: 0.4.2
       magic-string: 0.26.2
-      unimport: 0.4.7_vite@3.0.9
-      unplugin: 0.7.2_vite@3.0.9
+      unimport: 0.4.7_rollup@2.78.1+vite@3.0.9
+      unplugin: 0.7.2_rollup@2.78.1+vite@3.0.9
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -4467,7 +4567,7 @@ packages:
       - webpack
     dev: true
 
-  /unplugin-vue-components/0.22.4_vite@3.0.9+vue@3.2.37:
+  /unplugin-vue-components/0.22.4_6osae5vlgegmnwbw2tyjx4z6tq:
     resolution: {integrity: sha512-2rRZcM9OnJGXnYxQNfaceEYuPeVACcWySIjy8WBwIiN3onr980TmA3XE5pRJFt8zoQrUA+c46oyIq96noLqrEQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -4486,7 +4586,7 @@ packages:
       magic-string: 0.26.2
       minimatch: 5.1.0
       resolve: 1.22.1
-      unplugin: 0.9.5_vite@3.0.9
+      unplugin: 0.9.5_rollup@2.78.1+vite@3.0.9
       vue: 3.2.37
     transitivePeerDependencies:
       - esbuild
@@ -4496,7 +4596,7 @@ packages:
       - webpack
     dev: true
 
-  /unplugin/0.7.2_vite@3.0.9:
+  /unplugin/0.7.2_rollup@2.78.1+vite@3.0.9:
     resolution: {integrity: sha512-m7thX4jP8l5sETpLdUASoDOGOcHaOVtgNyrYlToyQUvILUtEzEnngRBrHnAX3IKqooJVmXpoa/CwQ/QqzvGaHQ==}
     peerDependencies:
       esbuild: '>=0.13'
@@ -4515,12 +4615,13 @@ packages:
     dependencies:
       acorn: 8.8.0
       chokidar: 3.5.3
+      rollup: 2.78.1
       vite: 3.0.9_sass@1.54.5
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
     dev: true
 
-  /unplugin/0.9.5_vite@3.0.9:
+  /unplugin/0.9.5_rollup@2.78.1+vite@3.0.9:
     resolution: {integrity: sha512-luraheyfxwtvkvHpsOvMNv7IjLdORTWKZp0gWYNHGLi2ImON3iIZOj464qEyyEwLA/EMt12fC415HW9zRpOfTg==}
     peerDependencies:
       esbuild: '>=0.13'
@@ -4539,6 +4640,7 @@ packages:
     dependencies:
       acorn: 8.8.0
       chokidar: 3.5.3
+      rollup: 2.78.1
       vite: 3.0.9_sass@1.54.5
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
@@ -4590,14 +4692,14 @@ packages:
       vite: 3.0.9_sass@1.54.5
     dev: true
 
-  /vite-plugin-mock/2.9.6_mockjs@1.1.0+vite@3.0.9:
+  /vite-plugin-mock/2.9.6_2iv5ulqe5f6ipzubth4c43ik5e:
     resolution: {integrity: sha512-/Rm59oPppe/ncbkSrUuAxIQihlI2YcBmnbR4ST1RA2VzM1C0tEQc1KlbQvnUGhXECAGTaQN2JyasiwXP6EtKgg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       mockjs: '>=1.1.0'
       vite: '>=2.0.0'
     dependencies:
-      '@rollup/plugin-node-resolve': 13.3.0
+      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.78.1
       '@types/mockjs': 1.0.6
       chalk: 4.1.2
       chokidar: 3.5.3

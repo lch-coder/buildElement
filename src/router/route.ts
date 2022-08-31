@@ -1,6 +1,6 @@
 import axios from 'axios'
 import router from './index'
-import { useMenuStore } from '@/store/modules/menu'
+import { useMenuStore } from '@/store'
 
 //**为通配符,vite不支持require导入方式,故用import.meta.glob(vite动态导入)
 /*import.meta.glob
@@ -65,12 +65,21 @@ const addCacheList = (list: any) => {
 
 // 添加路由
 const addRouter = (list: any) => {
+  const menuStore = useMenuStore()
+  console.log(menuStore.menuList)
+
+  router.addRoute({
+    path: '/',
+    name: '/',
+    redirect: menuStore.permissionMenu,
+  })
   router.addRoute({
     path: '/',
     name: 'layout',
     component: () => import('@/layouts/index.vue'),
     children: [...staticMenu, ...list],
   })
+
   // 添加完动态路由后再添加404页面，防止获取不到页面
   router.addRoute({
     path: '/:path(.*)*',
