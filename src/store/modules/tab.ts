@@ -102,9 +102,16 @@ export const useTabStore = defineStore('tab', {
     },
     /**
      * 关闭全部，保留第一个tab
+     * @param currentTab - 标签
      */
-    clearAllTab() {
-      this.tabList = [this.tabList[0]]
+    clearAllTab(currentTab?: Tab) {
+      if (currentTab) {
+        this.tabList = [currentTab]
+        this.setActiveTab(currentTab.fullPath)
+      } else {
+        this.tabList = this.tabList.filter((_, index) => index === 0)
+        this.setActiveTab(this.tabList?.[0]?.fullPath)
+      }
     },
     /**
      * 设置当前路由对应的页签title
