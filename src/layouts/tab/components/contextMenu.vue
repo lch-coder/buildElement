@@ -147,6 +147,7 @@ const handleClick = (item: Option) => {
   background: var(--el-bg-color-overlay);
   border: 1px solid var(--el-border-color-light);
   box-shadow: var(--el-dropdown-menu-box-shadow);
+  border-radius: var(--el-border-radius-base);
   .context-menu {
     position: relative;
     padding: 5px 0;

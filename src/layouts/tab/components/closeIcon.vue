@@ -1,5 +1,5 @@
 <template>
-  <span class="tab__icon" ref="hoverRef" :style="{ color: isActive ? activeColor : defaultColor }">
+  <span class="tab__icon" ref="hoverRef">
     <transition name="tab__icon-fade">
       <i i-ion:ios-close-circle v-if="isHovered" class="tab__icon-close"></i>
       <i i-ion-ios-close v-else class="tab__icon-close"></i>
@@ -8,21 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-interface Props {
-  /** 激活状态 */
-  isActive?: boolean
-  /** 默认颜色 */
-  defaultColor?: string
-  /** 激活时的颜色 */
-  activeColor?: string
-}
-
-withDefaults(defineProps<Props>(), {
-  isPrimary: false,
-  defaultColor: '#9ca3af',
-  activeColor: '#1890ff',
-})
-
 const hoverRef = ref()
 const isHovered = useElementHover(hoverRef)
 </script>
@@ -35,7 +20,6 @@ const isHovered = useElementHover(hoverRef)
   align-items: center;
   width: 18px;
   height: 18px;
-  font-size: 14px;
   &-fade {
     &-enter-active,
     &-leave-active {
@@ -48,8 +32,8 @@ const isHovered = useElementHover(hoverRef)
   }
   &-close {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
 }
 </style>

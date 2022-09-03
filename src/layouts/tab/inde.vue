@@ -6,7 +6,6 @@
 
     <div ref="app_process__scroller" class="app-process__scroller">
       <buttonTab
-        class="button_tab"
         v-for="(item, index) in tabList"
         :key="item.name"
         :isActive="activeTabIndex === index"
@@ -23,7 +22,7 @@
     </div>
     <contextMenu
       v-model:visible="menu.visible"
-      :currentTab="menu.currentTab"
+      :currentTab="(menu.currentTab as Tab)"
       :left="menu.style.left"
       :top="menu.style.top"
     ></contextMenu>
@@ -47,7 +46,7 @@ interface MenuProps {
 }
 const menu = reactive<MenuProps>({
   visible: false,
-  // current: {},
+  // currentTab: {},
   style: {
     left: '0px',
     top: '0px',
@@ -87,9 +86,6 @@ const handleClickTab = (item: Tab) => {
 </script>
 
 <style lang="scss" scoped>
-.button_tab {
-  margin-right: 10px;
-}
 .app-process {
   display: flex;
   align-items: center;
