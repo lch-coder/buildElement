@@ -1,4 +1,3 @@
-import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import { defineStore } from 'pinia'
 
 interface TabState {
@@ -29,6 +28,7 @@ export const useTabStore = defineStore('tab', {
      */
     setActiveTab(fullPath: string) {
       this.activeTab = fullPath
+      this.$router.push({ path: fullPath })
     },
     /**
      * 添加多页签
@@ -47,15 +47,14 @@ export const useTabStore = defineStore('tab', {
      * @param currentTab - 标签
      */
     removeTab(currentTab: Tab) {
-      const activeIndex = this.tabList.findIndex(tab => tab.fullPath === currentTab.fullPath)
+      const currentIndex = this.tabList.findIndex(tab => tab.fullPath === currentTab.fullPath)
       // 点击当前页面关闭按钮
-      if (this.activeTabIndex === activeIndex) {
-        this.tabList.splice(activeIndex, 1)
+      if (this.activeTabIndex === currentIndex) {
+        this.tabList.splice(currentIndex, 1)
         let activePath = this.tabList[this.tabList.length - 1].fullPath
         this.setActiveTab(activePath)
-        this.$router.push({ path: activePath })
       } else {
-        this.tabList.splice(activeIndex, 1)
+        this.tabList.splice(currentIndex, 1)
       }
     },
     /**
@@ -63,15 +62,50 @@ export const useTabStore = defineStore('tab', {
      * @param currentTab - 标签
      */
     clickTab(currentTab: Tab) {
-      const activeIndex = this.tabList.findIndex(tab => tab.fullPath === currentTab.fullPath)
-      if (this.activeTabIndex !== activeIndex) {
+      const currentIndex = this.tabList.findIndex(tab => tab.fullPath === currentTab.fullPath)
+      if (this.activeTabIndex !== currentIndex) {
         this.setActiveTab(currentTab.fullPath)
-        this.$router.push({ path: currentTab.fullPath })
       }
     },
-
-    /** 初始化Tab状态 */
-    iniTabStore(currentRoute: RouteLocationNormalizedLoaded) {},
+    /**
+     * 关闭其他tab
+     * @param currentTab - 标签
+     */
+    clearOtherTab(currentTab: Tab) {
+      this.tabList = [currentTab]
+      let activePath = currentTab.fullPath
+      this.setActiveTab(activePath)
+    },
+    /**
+     * 关闭左边tab
+     * @param currentTab - 标签
+     */
+    clearLeftTab(currentTab: Tab) {
+      const currentIndex = this.tabList.findIndex(tab => tab.fullPath === currentTab.fullPath)
+      // 当前页关闭
+      if (currentIndex > this.activeTabIndex) {
+        this.setActiveTab(currentTab.fullPath)
+      }
+      this.tabList = this.tabList.filter((_, index) => index >= currentIndex)
+    },
+    /**
+     * 关闭右边tab
+     * @param currentTab - 标签
+     */
+    clearRightTab(currentTab: Tab) {
+      const currentIndex = this.tabList.findIndex(tab => tab.fullPath === currentTab.fullPath)
+      // 当前页关闭
+      if (currentIndex < this.activeTabIndex) {
+        this.setActiveTab(currentTab.fullPath)
+      }
+      this.tabList = this.tabList.filter((_, index) => index <= currentIndex)
+    },
+    /**
+     * 关闭全部，保留第一个tab
+     */
+    clearAllTab() {
+      this.tabList = [this.tabList[0]]
+    },
     /**
      * 设置当前路由对应的页签title
      * @param title - tab名称

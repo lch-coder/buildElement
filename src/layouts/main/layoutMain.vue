@@ -1,15 +1,15 @@
 <script setup lang="ts">
+import { useAppStore } from '@/store'
+const appStore = useAppStore()
 const cacheList: string[] = []
 </script>
 
 <template>
-  <router-view v-slot="{ Component }">
-    <transition mode="out-in" appear>
-      <div>
-        <keep-alive :include="cacheList">
-          <component :is="Component" :key="$route.fullPath" />
-        </keep-alive>
-      </div>
+  <router-view v-slot="{ Component, route }">
+    <transition name="el-fade-in" mode="out-in" appear>
+      <keep-alive :include="cacheList">
+        <component v-if="appStore.reloadFlag" :is="Component" :key="route.fullPath" />
+      </keep-alive>
     </transition>
   </router-view>
 </template>

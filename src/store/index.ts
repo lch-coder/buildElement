@@ -14,6 +14,7 @@ export function setupStore(app: App) {
   app.use(store)
 }
 
+export * from './modules/app'
 export * from './modules/menu'
 export * from './modules/process'
 export * from './modules/user'

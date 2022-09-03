@@ -13,6 +13,7 @@
         :closable="index > 0"
         @close="handleCloseTab(item)"
         @click="handleClickTab(item)"
+        @contextmenu.prevent="handleContextMenu($event, item)"
       >
         <span>{{ item.title }}</span>
       </buttonTab>
@@ -20,14 +21,45 @@
     <div class="app-process__right hidden-xs-only">
       <i class="i-ep-arrow-right"></i>
     </div>
+    <contextMenu
+      v-model:visible="menu.visible"
+      :currentTab="menu.currentTab"
+      :left="menu.style.left"
+      :top="menu.style.top"
+    ></contextMenu>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useTabStore } from '@/store'
 import buttonTab from './components/buttonTab.vue'
+import contextMenu from './components/contextMenu.vue'
 const tabStore = useTabStore()
 const { tabList, activeTabIndex } = storeToRefs(tabStore)
+interface StyleProps {
+  left: string
+  top: string
+}
+interface MenuProps {
+  visible: boolean
+  currentTab?: Tab
+  style: StyleProps
+}
+const menu = reactive<MenuProps>({
+  visible: false,
+  // current: {},
+  style: {
+    left: '0px',
+    top: '0px',
+  },
+})
+
+const handleContextMenu = (e: MouseEvent, item: Tab) => {
+  menu.visible = true
+  menu.currentTab = item
+  menu.style.left = e.pageX + 'px'
+  menu.style.top = e.pageY + 'px'
+}
 
 const route = useRoute()
 watch(
@@ -158,32 +190,6 @@ const handleClickTab = (item: Tab) => {
         border-radius: 50%;
         position: relative;
         margin-right: 2px;
-      }
-    }
-  }
-
-  .context-menu {
-    margin: 0;
-    background: #fff;
-    z-index: 100;
-    position: absolute;
-    list-style-type: none;
-    padding: 5px 0;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 400;
-    color: #333;
-    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
-    border: 1px solid #e4ede7;
-
-    li {
-      margin: 0;
-      padding: 7px 16px;
-      cursor: pointer;
-
-      &:hover {
-        color: #409eff;
-        background: #eee;
       }
     }
   }

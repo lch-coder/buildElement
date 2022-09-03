@@ -10,8 +10,8 @@ const menuStore = useMenuStore()
 
 <template>
   <div class="layout-aside">
-    <el-scrollbar>
-      <el-menu :default-active="$route.path" :collapse="menu.isCollapse">
+    <el-scrollbar height="100%">
+      <el-menu :default-active="$route.path" :collapse="menu.isCollapse" h-full>
         <menuTree :menus="menuStore.menuList" />
       </el-menu>
     </el-scrollbar>
@@ -31,6 +31,10 @@ const menuStore = useMenuStore()
   width: v-bind(width);
   min-width: v-bind(width);
   transition: var(--el-transition-all);
+
+  :deep(.el-scrollbar__view) {
+    height: 100%;
+  }
   // background-color: #001529;
 
   // .el-menu {
