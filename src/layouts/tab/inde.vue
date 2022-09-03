@@ -1,10 +1,9 @@
 <template>
   <div class="app-process">
-    <div class="app-process__left hidden-xs-only">
+    <div class="app-process__left" @click="scrollToLeft">
       <i class="i-ep-arrow-left"></i>
     </div>
-
-    <div ref="app_process__scroller" class="app-process__scroller">
+    <div ref="tabScroller" class="app-process__scroller">
       <buttonTab
         v-for="(item, index) in tabList"
         :key="item.name"
@@ -17,7 +16,7 @@
         <span>{{ item.title }}</span>
       </buttonTab>
     </div>
-    <div class="app-process__right hidden-xs-only">
+    <div class="app-process__right" @click="scrollToRight">
       <i class="i-ep-arrow-right"></i>
     </div>
     <contextMenu
@@ -83,6 +82,16 @@ const handleCloseTab = (item: Tab) => {
 const handleClickTab = (item: Tab) => {
   tabStore.clickTab(item)
 }
+
+const tabScroller = ref<HTMLElement>()
+const scrollToLeft = () => {
+  const scroller = tabScroller.value
+  scroller?.scrollTo(scroller?.scrollLeft - 100, 0)
+}
+const scrollToRight = () => {
+  const scroller = tabScroller.value
+  scroller?.scrollTo(scroller?.scrollLeft + 100, 0)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -98,16 +107,11 @@ const handleClickTab = (item: Tab) => {
 
   &__left,
   &__right {
-    background-color: #fff;
     height: 30px;
     line-height: 30px;
     padding: 0 2px;
     border-radius: 3px;
     cursor: pointer;
-
-    &:hover {
-      background-color: #eee;
-    }
   }
 
   &__left {
@@ -127,66 +131,6 @@ const handleClickTab = (item: Tab) => {
 
     &::-webkit-scrollbar {
       display: none;
-    }
-  }
-
-  .block {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 3px;
-    height: 30px;
-    line-height: 30px;
-    padding: 0 10px;
-    background-color: #fff;
-    font-size: 12px;
-    margin-right: 10px;
-    color: #909399;
-    cursor: pointer;
-    border: 1px solid #e4ede7;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    i {
-      font-size: 14px;
-      overflow: hidden;
-      transition: all 0.3s;
-
-      &:hover {
-        color: #fff;
-        background-color: #2f3447;
-      }
-    }
-
-    &:hover {
-      .el-icon-close {
-        width: auto;
-        margin-left: 5px;
-      }
-    }
-
-    &.active {
-      span {
-        // color: $color-primary;
-        color: #409eff;
-      }
-
-      i {
-        margin-left: 5px;
-      }
-
-      &:before {
-        // background-color: $color-primary;
-        background-color: #2f3447;
-        content: '';
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        position: relative;
-        margin-right: 2px;
-      }
     }
   }
 }

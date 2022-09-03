@@ -1,16 +1,14 @@
 <template>
   <div ref="bsWrap" class="h-full text-left">
-    <div ref="bsContent" class="inline-block" :class="{ 'h-full': !isScrollY }">
+    <div ref="bsContent" :class="{ 'h-full': !isScrollY }">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
-import { useElementSize } from '@vueuse/core'
-import BetterScroll from 'better-scroll'
-import type { Options } from 'better-scroll'
+import BetterScroll from '@better-scroll/core'
+import type { Options } from '@better-scroll/core'
 
 interface Props {
   /** better-scroll的配置: https://better-scroll.github.io/docs/zh-CN/guide/base-scroll-options.html */
@@ -19,8 +17,8 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const bsWrap = ref<HTMLElement>()
 const instance = ref<BetterScroll>()
+const bsWrap = ref<HTMLElement>()
 const bsContent = ref<HTMLElement>()
 const isScrollY = computed(() => Boolean(props.options.scrollY))
 
@@ -34,6 +32,8 @@ const { width: wrapWidth } = useElementSize(bsWrap)
 const { width, height } = useElementSize(bsContent)
 watch([() => wrapWidth.value, () => width.value, () => height.value], () => {
   if (instance.value) {
+    console.log(instance, 'instance')
+
     instance.value.refresh()
   }
 })
