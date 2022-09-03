@@ -1,6 +1,6 @@
 <template>
   <div ref="bsWrap" class="h-full text-left">
-    <div ref="bsContent" :class="{ 'h-full': !isScrollY }">
+    <div ref="bsContent" class="content" :class="{ 'h-full': !isScrollY }">
       <slot></slot>
     </div>
   </div>
@@ -24,7 +24,7 @@ const isScrollY = computed(() => Boolean(props.options.scrollY))
 
 function initBetterScroll() {
   if (!bsWrap.value) return
-  instance.value = new BetterScroll(bsWrap.value, props.options)
+  instance.value = new BetterScroll(bsWrap.value!, props.options)
 }
 
 // 滚动元素发生变化，刷新BS
@@ -32,8 +32,6 @@ const { width: wrapWidth } = useElementSize(bsWrap)
 const { width, height } = useElementSize(bsContent)
 watch([() => wrapWidth.value, () => width.value, () => height.value], () => {
   if (instance.value) {
-    console.log(instance, 'instance')
-
     instance.value.refresh()
   }
 })
@@ -45,4 +43,8 @@ onMounted(() => {
 defineExpose({ instance })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.content {
+  width: max-content;
+}
+</style>

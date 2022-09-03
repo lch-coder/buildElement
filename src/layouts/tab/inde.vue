@@ -1,9 +1,10 @@
 <template>
-  <div class="app-process">
-    <div class="app-process__left" @click="scrollToLeft">
-      <i class="i-ep-arrow-left"></i>
-    </div>
-    <div ref="tabScroller" class="app-process__scroller">
+  <div class="app-tab">
+    <better-scroll
+      ref="tabScroller"
+      class="app-tab__scroller"
+      :options="{ scrollX: true, scrollY: false, click: false }"
+    >
       <buttonTab
         v-for="(item, index) in tabList"
         :key="item.name"
@@ -15,9 +16,9 @@
       >
         <span>{{ item.title }}</span>
       </buttonTab>
-    </div>
-    <div class="app-process__right" @click="scrollToRight">
-      <i class="i-ep-arrow-right"></i>
+    </better-scroll>
+    <div class="app-tab__right" @click="handleRefresh">
+      <i class="text-22px align-middle i-ep-refresh-right" :class="{ 'animate-spin': loading }" />
     </div>
     <contextMenu
       v-model:visible="menu.visible"
@@ -29,9 +30,20 @@
 </template>
 
 <script lang="ts" setup>
-import { useTabStore } from '@/store'
+import { useTabStore, useAppStore } from '@/store'
 import buttonTab from './components/buttonTab.vue'
 import contextMenu from './components/contextMenu.vue'
+
+const appStore = useAppStore()
+const loading = ref<boolean>(false)
+const handleRefresh = () => {
+  loading.value = true
+  appStore.reloadPage()
+  setTimeout(() => {
+    loading.value = false
+  }, 1000)
+}
+
 const tabStore = useTabStore()
 const { tabList, activeTabIndex } = storeToRefs(tabStore)
 interface StyleProps {
@@ -82,23 +94,12 @@ const handleCloseTab = (item: Tab) => {
 const handleClickTab = (item: Tab) => {
   tabStore.clickTab(item)
 }
-
-const tabScroller = ref<HTMLElement>()
-const scrollToLeft = () => {
-  const scroller = tabScroller.value
-  scroller?.scrollTo(scroller?.scrollLeft - 100, 0)
-}
-const scrollToRight = () => {
-  const scroller = tabScroller.value
-  scroller?.scrollTo(scroller?.scrollLeft + 100, 0)
-}
 </script>
 
 <style lang="scss" scoped>
-.app-process {
+.app-tab {
   display: flex;
   align-items: center;
-  height: 50px;
   padding: 10px;
   box-sizing: border-box;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 15%);
@@ -128,7 +129,6 @@ const scrollToRight = () => {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-
     &::-webkit-scrollbar {
       display: none;
     }
