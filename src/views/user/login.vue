@@ -35,9 +35,9 @@ const onLogin = async () => {
     </div>
     <div text-center pt-100px>
       <div>
-        <span font-600 text-4xl class="color-p">MDAdmin</span>
+        <span font-600 text-4xl class="color-p">BulidAdmin</span>
       </div>
-      <div text-sm mt-sm mb-4xl class="color-s">基于 Vue3 + Ts + Element Plus 的后台应用</div>
+      <div text-sm mt-sm mb-4xl class="color-s">基于 Vue3 + Ts + Element Plus 的后台管理系统</div>
     </div>
     <div w328px ma>
       <el-form ref="form$" :model="form" :rules="rules">

@@ -4,6 +4,7 @@ specifiers:
   '@babel/core': ^7.18.6
   '@babel/eslint-parser': ^7.18.2
   '@iconify-json/ep': ^1.1.6
+  '@iconify-json/ion': ^1.1.3
   '@types/lodash-es': ^4.17.6
   '@types/node': ^18.0.0
   '@types/nprogress': ^0.2.0
@@ -62,6 +63,7 @@ devDependencies:
   '@babel/core': 7.18.13
   '@babel/eslint-parser': 7.18.9_i2zlx7awpychpyuxyfseoqk6n4
   '@iconify-json/ep': 1.1.7
+  '@iconify-json/ion': 1.1.3
   '@types/lodash-es': 4.17.6
   '@types/node': 18.7.13
   '@types/nprogress': 0.2.0
@@ -1444,6 +1446,12 @@ packages:
 
   /@iconify-json/ep/1.1.7:
     resolution: {integrity: sha512-GhXWVKalXFlrGgfrCXAgqBre5hv3pPAknuxyywmjamcrL5gl5Mq9WOZtuhb4cB6cJ5pMiKOMtegt73FheqWscA==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-json/ion/1.1.3:
+    resolution: {integrity: sha512-s7uPWzfogdVw5rkWhBnAWG29SO3f1+AfOsHiJIQDPZwkSsNnES2omIC7PFbDuTIGCgCHZna59aq2AQIf7pdc7w==}
     dependencies:
       '@iconify/types': 1.1.0
     dev: true

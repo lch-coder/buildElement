@@ -2,7 +2,8 @@
 import layoutHeader from './header/layoutHeader.vue'
 import layoutAside from './aside/layoutAside.vue'
 import layoutMain from './main/layoutMain.vue'
-import process from './process/index'
+// import process from './process/index'
+import tabList from '@/layouts/tab/inde.vue'
 </script>
 
 <template>
@@ -11,7 +12,8 @@ import process from './process/index'
     <el-container>
       <layoutAside></layoutAside>
       <el-container direction="vertical">
-        <process></process>
+        <!-- <process></process> -->
+        <tabList></tabList>
         <el-main>
           <el-scrollbar>
             <layoutMain></layoutMain>
