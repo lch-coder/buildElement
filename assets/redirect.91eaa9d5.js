@@ -1,1 +1,0 @@
-import{d as u,c as l,b as c,aH as p,aI as d,g as a,a3 as i}from"./index.ff6b271a.js";const f=u({name:"redirect",setup(){const r=l(),n=c();p(()=>{const{params:o,query:s}=r,{path:e}=o;let t="";e&&e.length>0&&(t=e.join("/")),n.replace({path:"/"+t,query:s})})},render(){return d(a(i,null,null),{},a("div",null,null))}});export{f as default};
