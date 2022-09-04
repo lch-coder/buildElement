@@ -17,7 +17,7 @@ const summary = reactive([
 
 <template>
   <div>
-    <div class="flex mb3 p3 flex-col space-y6 bg-white" md="flex-row items-center space-y0 space-x6">
+    <div class="flex mb3 p3 flex-col space-y6" md="flex-row items-center space-y0 space-x6">
       <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" :size="72" />
       <div class="flex-1">
         <div class="text-xl mb2">早安，MD，祝你开心每一天！</div>

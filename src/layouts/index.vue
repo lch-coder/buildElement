@@ -3,7 +3,7 @@ import layoutHeader from './header/layoutHeader.vue'
 import layoutAside from './aside/layoutAside.vue'
 import layoutMain from './main/layoutMain.vue'
 // import process from './process/index'
-import tabList from '@/layouts/tab/inde.vue'
+import tabList from '@/layouts/tab/index.vue'
 </script>
 
 <template>
@@ -29,7 +29,6 @@ import tabList from '@/layouts/tab/inde.vue'
   overflow: hidden;
 }
 .el-main {
-  background: #f5f5f5;
   padding: 0;
 }
 </style>

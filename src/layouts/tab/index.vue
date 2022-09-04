@@ -9,7 +9,7 @@
         v-for="(item, index) in tabList"
         :key="item.name"
         :isActive="activeTabIndex === index"
-        :closable="index > 0"
+        :closable="tabList.length > 1"
         @close="handleCloseTab(item)"
         @click="handleClickTab(item)"
         @contextmenu.prevent="handleContextMenu($event, item)"
@@ -17,8 +17,10 @@
         <span>{{ item.title }}</span>
       </buttonTab>
     </better-scroll>
-    <div class="app-tab__right" @click="handleRefresh">
-      <i class="text-22px align-middle i-ep-refresh-right" :class="{ 'animate-spin': loading }" />
+    <div class="app-tab__right" w-64px h-full text-center @click="handleRefresh">
+      <hoverContainer content="重新加载">
+        <i class="text-20px align-middle i-ep-refresh-right" :class="{ 'animate-spin': loading }" />
+      </hoverContainer>
     </div>
     <contextMenu
       v-model:visible="menu.visible"
@@ -100,32 +102,16 @@ const handleClickTab = (item: Tab) => {
 .app-tab {
   display: flex;
   align-items: center;
-  padding: 10px;
+  height: 50px;
+  line-height: 50px;
   box-sizing: border-box;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 15%);
   border-bottom: 1px solid rgba(178, 186, 194, 0.15);
-  margin-bottom: 1px;
-
-  &__left,
-  &__right {
-    height: 30px;
-    line-height: 30px;
-    padding: 0 2px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  &__left {
-    margin-right: 10px;
-  }
-
-  &__right {
-    margin-left: 10px;
-  }
 
   &__scroller {
     width: 100%;
     flex: 1;
+    padding-left: 16px;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;

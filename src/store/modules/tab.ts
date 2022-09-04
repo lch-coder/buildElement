@@ -14,6 +14,7 @@ export const useTabStore = defineStore('tab', {
     tabList: [],
     activeTab: '',
   }),
+  persist: true,
   getters: {
     /** 当前激活状态的页签索引 */
     activeTabIndex(state) {

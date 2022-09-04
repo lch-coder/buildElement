@@ -53,7 +53,9 @@ declare module '@vue/runtime-core' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
-    MonacoEditor: typeof import('./components/monacoEditor.vue')['default']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
+    HoverContainer: typeof import('./components/hoverContainer.vue')['default']
+    MonacoEditor: typeof import('./components/monacoEditor/monacoEditor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

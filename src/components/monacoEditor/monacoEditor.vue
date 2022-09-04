@@ -1,3 +1,8 @@
+<template>
+  <div ref="codeEditBox" class="codeEditBox"></div>
+</template>
+
+<script lang="ts">
 import { defineComponent, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { editorProps } from './monacoEditorType'
 import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker'
@@ -10,11 +15,8 @@ import * as monaco from 'monaco-editor'
 export default defineComponent({
   name: 'monacoEditor',
   props: editorProps,
-  emits: ['update:modelValue', 'change'],
+  emits: ['update:modelValue', 'change', 'editor-mounted'],
   setup(props, { emit }) {
-    //
-    // MonacoEditor start
-    //
     self.MonacoEnvironment = {
       getWorker(_: string, label: string) {
         if (label === 'json') {
@@ -58,6 +60,8 @@ export default defineComponent({
         emit('update:modelValue', value)
         emit('change', value)
       })
+
+      emit('editor-mounted', editor)
     }
     watch(
       () => props.modelValue,
@@ -94,14 +98,14 @@ export default defineComponent({
       init()
     })
 
-    return () => (
-      <div
-        ref={codeEditBox}
-        style={{
-          width: props.width,
-          height: props.height,
-        }}
-      ></div>
-    )
+    return { codeEditBox }
   },
 })
+</script>
+
+<style lang="scss" scoped>
+.codeEditBox {
+  width: v-bind(width);
+  height: v-bind(height);
+}
+</style>
