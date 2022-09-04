@@ -66,7 +66,6 @@ const addCacheList = (list: any) => {
 // 添加路由
 const addRouter = (list: any) => {
   const menuStore = useMenuStore()
-  console.log(menuStore.menuList)
 
   router.addRoute({
     path: '/',

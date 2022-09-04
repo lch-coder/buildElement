@@ -1,5 +1,5 @@
 <template>
-  <div class="app-tab">
+  <div class="app-tab" bg-bgColor transition-all duration-300 ease-in-out>
     <better-scroll
       ref="tabScroller"
       class="app-tab__scroller"
@@ -107,13 +107,18 @@ const handleClickTab = (item: Tab) => {
   box-sizing: border-box;
   border-bottom: 1px solid var(--el-border-color);
 
+  position: fixed;
+  top: 48px;
+  z-index: 999;
+  width: calc(100% - 220px);
+
   &__scroller {
     width: 100%;
     flex: 1;
-    padding-left: 16px;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-left: 12px;
     &::-webkit-scrollbar {
       display: none;
     }

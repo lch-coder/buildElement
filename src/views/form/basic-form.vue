@@ -32,7 +32,6 @@ const rules: FormRules = {
 async function submitForm() {
   ElMessage.success('创建成功')
 }
-console.log('basic-form')
 </script>
 
 <template>

@@ -22,7 +22,6 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const disabled = computed(() => !Boolean(props.content))
-console.log(disabled)
 </script>
 
 <style scoped></style>

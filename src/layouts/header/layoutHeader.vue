@@ -23,7 +23,7 @@ function onLogout() {
 </script>
 
 <template>
-  <el-header class="layout-header" height="48px">
+  <el-header class="layout-header" height="48px" bg-bgColor transition-all duration-300 ease-in-out>
     <div class="logo" @click="onClickLogo">
       <img src="/favicon.ico" />
       <span class="text-2xl ml-2" color-primary>buildAdmin</span>
@@ -31,7 +31,7 @@ function onLogout() {
       <div v-if="menu.isDrawer" i-ep-expand class="text-xl ml-2" />
     </div>
 
-    <div style="flex: 1" />
+    <div flex-1 />
     <el-space>
       <template v-if="!menu.isDrawer">
         <div class="right-item" @click="toggleDark()">
@@ -75,6 +75,9 @@ function onLogout() {
 .layout-header {
   display: flex;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
   border-bottom: 1px solid var(--el-border-color);
 }
 .logo {

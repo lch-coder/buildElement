@@ -31,20 +31,16 @@ const menuStore = useMenuStore()
   width: v-bind(width);
   min-width: v-bind(width);
   transition: var(--el-transition-all);
-
+  position: fixed;
+  left: 0;
+  top: 48px;
+  box-sizing: border-box;
+  width: v-bind(width);
+  height: 100%;
   :deep(.el-scrollbar__view) {
     height: 100%;
   }
-  // background-color: #001529;
 
-  // .el-menu {
-  //   --el-menu-text-color: rgba(255, 255, 255, 0.65);
-  //   --el-menu-hover-text-color: rgba(255, 255, 255, 0.65);
-  //   --el-menu-bg-color: #001529;
-  //   --el-menu-hover-bg-color: rgb(0, 17, 33);
-  //   --el-menu-active-color: #fff;
-  //   border-right: none;
-  // }
   .collapse {
     padding: 0 20px;
     height: 48px;

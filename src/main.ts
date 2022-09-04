@@ -11,6 +11,7 @@ import '@unocss/reset/eric-meyer.css'
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
+import '@/styles/scrollbar.scss'
 const app = createApp(App)
 
 setupStore(app)
