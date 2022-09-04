@@ -26,7 +26,7 @@ function onLogout() {
   <el-header class="layout-header" height="48px">
     <div class="logo" @click="onClickLogo">
       <img src="/favicon.ico" />
-      <span class="text-2xl ml-2">buildAdmin</span>
+      <span class="text-2xl ml-2" color-primary>buildAdmin</span>
 
       <div v-if="menu.isDrawer" i-ep-expand class="text-xl ml-2" />
     </div>
@@ -52,7 +52,7 @@ function onLogout() {
       <div class="right-item">
         <el-dropdown>
           <div class="el-dropdown-link">
-            <el-avatar :size="30" :src="'https://iph.href.lu/100x100?text=MD&fg=FFFFFF&bg=000000'" />
+            <el-avatar :size="30" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
             <div class="nickname">
               admin
               <div i-ep-arrow-down ml-1 />
@@ -75,8 +75,7 @@ function onLogout() {
 .layout-header {
   display: flex;
   align-items: center;
-  color: #fff;
-  background-color: #001529;
+  border-bottom: 1px solid var(--el-border-color);
 }
 .logo {
   position: relative;
@@ -113,7 +112,7 @@ function onLogout() {
   }
 
   .nickname {
-    color: #fff;
+    // color: #fff;
     margin-left: 8px;
     display: flex;
     align-items: center;

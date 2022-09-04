@@ -105,8 +105,7 @@ const handleClickTab = (item: Tab) => {
   height: 50px;
   line-height: 50px;
   box-sizing: border-box;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 15%);
-  border-bottom: 1px solid rgba(178, 186, 194, 0.15);
+  border-bottom: 1px solid var(--el-border-color);
 
   &__scroller {
     width: 100%;
