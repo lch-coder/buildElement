@@ -26,6 +26,13 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
   history: createWebHistory('/buildElement/'),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  },
 })
 
 router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
@@ -68,7 +75,7 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
 
 router.afterEach((to: RouteLocationNormalized) => {
   // 设置document title
-  useTitle(to.meta.title as string)
+  useTitle((to.meta.title as string) + ' | Build Element')
   NProgress.done() // 进度条结束
 })
 

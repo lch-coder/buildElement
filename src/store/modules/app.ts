@@ -28,9 +28,9 @@ export const useAppStore = defineStore('app-store', {
       await nextTick()
       this.reloadFlag = true
 
-      //   setTimeout(() => {
-      //     document.documentElement.scrollTo({ left: 0, top: 0 })
-      //   }, 100)
+      setTimeout(() => {
+        document.documentElement.scrollTo({ left: 0, top: 0 })
+      }, 100)
     },
     /** 打开设置抽屉 */
     openSettingDrawer() {

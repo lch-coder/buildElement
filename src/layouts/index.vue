@@ -2,7 +2,6 @@
 import layoutHeader from './header/layoutHeader.vue'
 import layoutAside from './aside/layoutAside.vue'
 import layoutMain from './main/layoutMain.vue'
-// import process from './process/index'
 import tabList from '@/layouts/tab/index.vue'
 </script>
 
@@ -15,7 +14,6 @@ import tabList from '@/layouts/tab/index.vue'
         <tabList></tabList>
         <el-main>
           <layoutMain></layoutMain>
-          <el-backtop :right="100" :bottom="100" />
         </el-main>
       </el-container>
     </el-container>
