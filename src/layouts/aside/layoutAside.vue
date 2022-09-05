@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import { useMenuStore } from '@/store/modules/menu'
+import { useMenuStore, useAppStore } from '@/store'
 import menuTree from './menuTree.vue'
-const menu: any = reactive({
-  isCollapse: false,
-})
-const width = computed(() => (menu.isCollapse ? '64px' : '220px'))
+
+const appStore = useAppStore()
+const { siderCollapse, siderWidth } = storeToRefs(appStore)
 const menuStore = useMenuStore()
 </script>
 
 <template>
   <div class="layout-aside">
     <el-scrollbar height="100%">
-      <el-menu :default-active="$route.path" :collapse="menu.isCollapse" h-full>
+      <el-menu :default-active="$route.path" :collapse="siderCollapse" h-full>
         <menuTree :menus="menuStore.menuList" />
       </el-menu>
     </el-scrollbar>
     <div class="collapse">
-      <el-icon :size="24" @click="menu.isCollapse = !menu.isCollapse">
-        <div v-if="menu.isCollapse" i-ep-expand />
+      <el-icon :size="24" @click="appStore.setSiderCollapse(!siderCollapse)">
+        <div v-if="siderCollapse" i-ep-expand />
         <div v-else i-ep-fold />
       </el-icon>
     </div>
@@ -28,16 +27,16 @@ const menuStore = useMenuStore()
 .layout-aside {
   display: flex;
   flex-direction: column;
-  width: v-bind(width);
-  min-width: v-bind(width);
+  min-width: v-bind(siderWidth);
   transition: var(--el-transition-all);
   position: fixed;
   left: 0;
   top: 48px;
+  z-index: 1000;
   box-sizing: border-box;
-  width: v-bind(width);
+  width: v-bind(siderWidth);
   height: calc(100% - 48px);
-  border-right: 1px solid var(--el-menu-border-color);
+  box-shadow: var(--el-box-shadow-lighter);
   :deep(.el-scrollbar__view) {
     height: 100%;
   }

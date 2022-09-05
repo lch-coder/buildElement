@@ -77,8 +77,8 @@ function onLogout() {
   align-items: center;
   position: fixed;
   width: 100%;
-  z-index: 999;
-  border-bottom: 1px solid var(--el-border-color);
+  z-index: 1001;
+  box-shadow: var(--el-box-shadow-lighter);
 }
 .logo {
   position: relative;

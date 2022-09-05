@@ -19,6 +19,17 @@ export const useAppStore = defineStore('app-store', {
     siderCollapse: false,
     mixSiderFixed: false,
   }),
+  getters: {
+    /** 侧边栏宽度 */
+    siderWidth(state) {
+      const { siderCollapse } = state
+      if (siderCollapse) {
+        return '64px'
+      } else {
+        return '220px'
+      }
+    },
+  },
   actions: {
     /**
      * 重载页面

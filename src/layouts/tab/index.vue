@@ -37,6 +37,7 @@ import buttonTab from './components/buttonTab.vue'
 import contextMenu from './components/contextMenu.vue'
 
 const appStore = useAppStore()
+const { siderWidth } = storeToRefs(appStore)
 const loading = ref<boolean>(false)
 const handleRefresh = () => {
   loading.value = true
@@ -110,7 +111,8 @@ const handleClickTab = (item: Tab) => {
   position: fixed;
   top: 48px;
   z-index: 999;
-  width: calc(100% - 220px);
+  width: 100%;
+  margin-left: v-bind(siderWidth);
 
   &__scroller {
     width: 100%;
