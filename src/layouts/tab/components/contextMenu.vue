@@ -143,7 +143,7 @@ const handleClick = (item: Option) => {
 <style lang="scss" scoped>
 .dropdown-popper {
   position: absolute;
-  z-index: 100;
+  z-index: 1000;
   background: var(--el-bg-color-overlay);
   border: 1px solid var(--el-border-color-light);
   box-shadow: var(--el-dropdown-menu-box-shadow);
