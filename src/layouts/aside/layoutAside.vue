@@ -15,7 +15,7 @@ const menuStore = useMenuStore()
         <menuTree :menus="menuStore.menuList" />
       </el-menu>
     </el-scrollbar>
-    <div class="collapse border-t border-black/25">
+    <div class="collapse">
       <el-icon :size="24" @click="menu.isCollapse = !menu.isCollapse">
         <div v-if="menu.isCollapse" i-ep-expand />
         <div v-else i-ep-fold />
@@ -36,9 +36,13 @@ const menuStore = useMenuStore()
   top: 48px;
   box-sizing: border-box;
   width: v-bind(width);
-  height: 100%;
+  height: calc(100% - 48px);
+  border-right: 1px solid var(--el-menu-border-color);
   :deep(.el-scrollbar__view) {
     height: 100%;
+  }
+  .el-menu {
+    border-right: none;
   }
 
   .collapse {
@@ -47,6 +51,7 @@ const menuStore = useMenuStore()
     line-height: 48px;
     display: flex;
     align-items: center;
+    border-top: 1px solid var(--el-menu-border-color);
     .el-icon {
       cursor: pointer;
     }

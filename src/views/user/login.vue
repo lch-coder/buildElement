@@ -6,7 +6,6 @@ import { addRoutes } from '@/router/route'
 const userStore = useUserStore()
 const menuStore = useMenuStore()
 const router = useRouter()
-const route = useRoute()
 
 const form = reactive({
   username: 'admin',
@@ -26,6 +25,10 @@ const onLogin = async () => {
     path: menuStore.permissionMenu,
   })
 }
+
+onMounted(() => {
+  useDark()
+})
 </script>
 
 <template>

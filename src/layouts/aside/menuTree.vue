@@ -45,14 +45,4 @@ const clickMenu = (menu: any) => {
 }
 </script>
 
-<style lang="scss" scoped>
-.el-sub-menu {
-  .el-menu {
-    // background-color: #000c17;
-  }
-}
-
-.el-menu-item.is-active {
-  // background-color: #409eff;
-}
-</style>
+<style lang="scss" scoped></style>
