@@ -112,7 +112,7 @@ const handleClickTab = (item: Tab) => {
   top: 48px;
   z-index: 999;
   width: 100%;
-  margin-left: v-bind(siderWidth);
+  padding-left: v-bind(siderWidth);
 
   &__scroller {
     width: 100%;

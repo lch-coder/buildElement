@@ -8,7 +8,7 @@ const menuStore = useMenuStore()
 </script>
 
 <template>
-  <div class="layout-aside">
+  <div class="layout-aside" bg-bgColor transition-all duration-300 ease-in-out>
     <el-scrollbar height="100%">
       <el-menu :default-active="$route.path" :collapse="siderCollapse" h-full>
         <menuTree :menus="menuStore.menuList" />
