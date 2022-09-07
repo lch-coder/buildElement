@@ -6,6 +6,7 @@ export const useMenuStore = defineStore({
   state: () => ({
     cacheList: [] as string[], //缓存路由列表
     menuList: [], //菜单列表
+    dynamicRouteList: [], //动态路由
     permissionMenu: '/', //有权限的第一个菜单
   }),
   getters: {},
@@ -18,6 +19,11 @@ export const useMenuStore = defineStore({
     // 保存用户第一个权限菜单
     setPermissionMenu(menuPath = '/') {
       this.permissionMenu = menuPath
+    },
+
+    // 保存动态路由
+    setDynamicRouteList(dynamicRouteList: any) {
+      this.dynamicRouteList = dynamicRouteList
     },
 
     // 设置路由缓存

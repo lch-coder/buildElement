@@ -98,6 +98,7 @@ export const addRoutes = async function () {
       menuStore.setMenuList(data.data)
       const dynamicMenu = getDynamicMenu(data.data || [])
       menuStore.setPermissionMenu(dynamicMenu?.[0]?.path)
+      menuStore.setDynamicRouteList(dynamicMenu)
       addRouter(dynamicMenu)
     }
   })

@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { useMenuStore } from '@/store'
 
 interface TabState {
   /** 多页签数据 */
@@ -14,7 +15,7 @@ export const useTabStore = defineStore('tab', {
     tabList: [],
     activeTab: '',
   }),
-  persist: true,
+  // persist: true,
   getters: {
     /** 当前激活状态的页签索引 */
     activeTabIndex(state) {
@@ -36,11 +37,11 @@ export const useTabStore = defineStore('tab', {
      * @param currentTab - 标签
      */
     addTab(currentTab: Tab) {
+      const menuStore = useMenuStore()
+      let nameList = menuStore.dynamicRouteList.map((item: any) => item.name)
       let index = this.tabList.findIndex(item => item.name === currentTab.name)
-      if (index === -1 && !ignoreList.includes(currentTab.name)) {
+      if (index === -1 && nameList.includes(currentTab.name)) {
         this.tabList.push(currentTab)
-      } else {
-        // this.tabList.splice(index, 1, currentTab)
       }
     },
     /**
