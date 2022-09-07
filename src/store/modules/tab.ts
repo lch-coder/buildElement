@@ -38,8 +38,12 @@ export const useTabStore = defineStore('tab', {
       const menuStore = useMenuStore()
       let nameList = menuStore.dynamicRouteList.map((item: any) => item.name)
       let index = this.tabList.findIndex(item => item.name === currentTab.name)
-      if (index === -1 && nameList.includes(currentTab.name)) {
-        this.tabList.push(currentTab)
+      if (nameList.includes(currentTab.name)) {
+        if (index === -1) {
+          this.tabList.push(currentTab)
+        } else {
+          this.tabList.splice(index, 1, currentTab)
+        }
       }
     },
     /**
