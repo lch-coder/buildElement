@@ -8,8 +8,6 @@ interface TabState {
   activeTab: string
 }
 
-const ignoreList = ['redirect', 'notFound', 'login', '403', '404', '500']
-
 export const useTabStore = defineStore('tab', {
   state: (): TabState => ({
     tabList: [],
@@ -30,7 +28,7 @@ export const useTabStore = defineStore('tab', {
      */
     setActiveTab(fullPath: string) {
       this.activeTab = fullPath
-      this.$router.push({ path: fullPath })
+      this.$router.push(fullPath)
     },
     /**
      * 添加多页签

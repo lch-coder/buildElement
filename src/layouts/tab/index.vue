@@ -6,9 +6,9 @@
       :options="{ scrollX: true, scrollY: false, click: false }"
     >
       <buttonTab
-        v-for="(item, index) in tabList"
-        :key="item.name"
-        :isActive="activeTabIndex === index"
+        v-for="item in tabList"
+        :key="item.fullPath"
+        :isActive="activeTab === item.fullPath"
         :closable="tabList.length > 1"
         @close="handleCloseTab(item)"
         @click="handleClickTab(item)"
@@ -48,7 +48,7 @@ const handleRefresh = () => {
 }
 
 const tabStore = useTabStore()
-const { tabList, activeTabIndex } = storeToRefs(tabStore)
+const { tabList, activeTab } = storeToRefs(tabStore)
 interface StyleProps {
   left: string
   top: string
