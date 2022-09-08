@@ -41,7 +41,7 @@ export const initRoute = (list: any, newArr: any = []) => {
       component: modules[`../views/${item.component}`] || component404,
       meta: {
         title: item.title,
-        keepAlive: Boolean(item.isCache),
+        keepAlive: Boolean(item.cache),
       },
     })
   })

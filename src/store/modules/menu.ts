@@ -37,16 +37,17 @@ export const useMenuStore = defineStore({
     },
 
     // 刷新路由缓存
-    resetCache(routeItem?: string) {
+    async resetCache(routeItem?: string) {
       const cacheList = cloneDeep(this.cacheList)
       if (routeItem) {
         this.cacheList = cacheList.filter((item: string) => item !== routeItem)
       } else {
         this.cacheList = []
       }
-      setTimeout(() => {
-        this.cacheList = cacheList
-      }, 100)
+      await nextTick()
+      // setTimeout(() => {
+      //   this.cacheList = cacheList
+      // }, 100)
       this.cacheList = cacheList
     },
   },

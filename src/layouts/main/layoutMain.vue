@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useAppStore } from '@/store'
+import { useAppStore, useMenuStore } from '@/store'
 const appStore = useAppStore()
-const cacheList: string[] = []
+const menuStore = useMenuStore()
+const { cacheList } = storeToRefs(menuStore)
 </script>
 
 <template>

@@ -1,5 +1,7 @@
 import { nextTick } from 'vue'
+import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import { defineStore } from 'pinia'
+import { useMenuStore } from '@/store'
 
 interface AppState {
   /** 重载页面(控制页面的显示) */
@@ -35,6 +37,9 @@ export const useAppStore = defineStore('app-store', {
      * 重载页面
      */
     async reloadPage() {
+      const menuStore = useMenuStore()
+      let name: string = this.$router.currentRoute.value.name as string
+      menuStore.resetCache(name)
       this.reloadFlag = false
       await nextTick()
       this.reloadFlag = true

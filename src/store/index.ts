@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+import { markRaw } from 'vue'
 import { createPinia } from 'pinia'
 import router from '@/router'
 
@@ -7,7 +8,7 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 //pinia使用
 store.use(piniaPluginPersistedstate)
 store.use(({ store }) => {
-  store.$router = router
+  store.$router = markRaw(router)
 })
 
 export function setupStore(app: App) {
