@@ -138,6 +138,43 @@ export default [
             ],
           },
           {
+            title: '多级菜单',
+            icon: 'i-ep-menu',
+            path: '/mult-menu',
+            children: [
+              {
+                title: '一级菜单',
+                name: 'mult-first',
+                icon: 'i-ep-menu',
+                path: '/mult-menu/first',
+                children: [
+                  {
+                    title: '二级菜单',
+                    name: 'mult-first-second1',
+                    icon: 'i-ep-menu',
+                    path: '/mult-menu/first/second1',
+                    component: 'multiMenu/first/second/index.vue',
+                  },
+                  {
+                    title: '二级菜单(有子页面)',
+                    name: 'mult-first-second2',
+                    icon: 'i-ep-menu',
+                    path: '/mult-menu/first/second2',
+                    children: [
+                      {
+                        title: '二级菜单',
+                        name: 'mult-first-second-third',
+                        icon: 'i-ep-menu',
+                        path: '/mult-menu/first/second/third',
+                        component: 'multiMenu/first/second-new/third/index.vue',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
             title: '权限演示',
             icon: 'i-ep-flag',
             name: 'permission',
