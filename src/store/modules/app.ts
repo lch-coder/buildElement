@@ -1,5 +1,4 @@
 import { nextTick } from 'vue'
-import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import { defineStore } from 'pinia'
 import { useMenuStore } from '@/store'
 
@@ -14,7 +13,7 @@ interface AppState {
   mixSiderFixed: boolean
 }
 
-export const useAppStore = defineStore('app-store', {
+export const useAppStore = defineStore('app', {
   state: (): AppState => ({
     reloadFlag: true,
     settingDrawerVisible: false,

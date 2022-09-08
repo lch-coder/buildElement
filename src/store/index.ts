@@ -17,6 +17,5 @@ export function setupStore(app: App) {
 
 export * from './modules/app'
 export * from './modules/menu'
-export * from './modules/process'
 export * from './modules/user'
 export * from './modules/tab'

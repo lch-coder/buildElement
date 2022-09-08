@@ -8,7 +8,6 @@ import 'nprogress/nprogress.css' // 注意必须要引入css样式文件
 NProgress.configure({ showSpinner: false })
 
 import { useMenuStore } from '@/store/modules/menu'
-import { useProcessStore } from '@/store/modules/process'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -19,7 +18,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/redirect/:path*',
     name: 'redirect',
-    component: () => import('@/layouts/process/redirect'),
+    component: () => import('@/layouts/redirect/redirect.vue'),
   },
 ]
 
@@ -36,13 +35,6 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
-  const processStore = useProcessStore()
-  processStore.addProcess({
-    label: (to.meta.title || to.name) as string,
-    value: to.fullPath,
-    name: to.name as string,
-    active: true,
-  })
   NProgress.start()
   // token存在
   if (getLocalStorage('token')) {

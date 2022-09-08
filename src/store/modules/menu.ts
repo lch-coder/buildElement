@@ -45,9 +45,6 @@ export const useMenuStore = defineStore({
         this.cacheList = []
       }
       await nextTick()
-      // setTimeout(() => {
-      //   this.cacheList = cacheList
-      // }, 100)
       this.cacheList = cacheList
     },
   },

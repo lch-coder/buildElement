@@ -1,3 +1,4 @@
+<script lang="tsx">
 import { onBeforeMount, h } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 export default defineComponent({
@@ -6,16 +7,13 @@ export default defineComponent({
     const route = useRoute()
     const router = useRouter()
     onBeforeMount(() => {
-      const { params, query } = route
-      const { path } = params
-      let paths = ''
-      if (path && path.length > 0) {
-        paths = (path as string[]).join('/')
-      }
-      router.replace({ path: '/' + paths, query })
+      let { fullPath, query } = route
+      fullPath = fullPath.replace('/redirect', '')
+      router.replace({ path: fullPath, query })
     })
   },
   render() {
     return h(<></>, {}, <div></div>)
   },
 })
+</script>
