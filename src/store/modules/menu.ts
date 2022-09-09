@@ -1,18 +1,30 @@
+import { Imenu, IRoute } from '@/typings/router'
 import { cloneDeep } from 'lodash-es'
 import { defineStore } from 'pinia'
 
+interface Menustate {
+  /** 存路由列表 */
+  cacheList: string[]
+  /** 菜单列表 */
+  menuList: Imenu[]
+  /** 动态路由 */
+  dynamicRouteList: IRoute[]
+  /** 有权限的第一个菜单 */
+  permissionMenu: string
+}
+
 export const useMenuStore = defineStore({
   id: 'menu',
-  state: () => ({
-    cacheList: [] as string[], //缓存路由列表
-    menuList: [], //菜单列表
-    dynamicRouteList: [], //动态路由
-    permissionMenu: '/', //有权限的第一个菜单
+  state: (): Menustate => ({
+    cacheList: [],
+    menuList: [],
+    dynamicRouteList: [],
+    permissionMenu: '/',
   }),
   getters: {},
   actions: {
     // 保存登录用户的菜单列表
-    setMenuList(menuList: any) {
+    setMenuList(menuList: Imenu[]) {
       this.menuList = menuList
     },
 
@@ -22,7 +34,7 @@ export const useMenuStore = defineStore({
     },
 
     // 保存动态路由
-    setDynamicRouteList(dynamicRouteList: any) {
+    setDynamicRouteList(dynamicRouteList: IRoute[]) {
       this.dynamicRouteList = dynamicRouteList
     },
 

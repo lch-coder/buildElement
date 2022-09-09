@@ -55,7 +55,18 @@ export default defineConfig({
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
-  safelist: [...Object.keys(epIcons.icons.icons).map(name => `${iconPrefix}${epIcons.icons.prefix}-${name}`)],
+  safelist: [
+    ...Object.keys(epIcons.icons.icons).map(name => `${iconPrefix}${epIcons.icons.prefix}-${name}`),
+    'bg-purple-100',
+    'bg-purple-200',
+    'bg-purple-300',
+    'bg-purple-400',
+    'bg-purple-500',
+    'bg-purple-600',
+    'bg-purple-700',
+    'bg-purple-800',
+    'bg-purple-900',
+  ],
   theme: {
     colors: {
       primary: 'var(--el-color-primary)',

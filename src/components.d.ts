@@ -56,6 +56,8 @@ declare module '@vue/runtime-core' {
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     HoverContainer: typeof import('./components/hoverContainer.vue')['default']
+    MenuBox: typeof import('./components/menuBox.vue')['default']
+    MenuContianer: typeof import('./components/menuContianer.vue')['default']
     MonacoEditor: typeof import('./components/monacoEditor/monacoEditor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

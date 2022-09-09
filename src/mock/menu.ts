@@ -1,9 +1,10 @@
 import { MockMethod } from 'vite-plugin-mock'
-
+let timeout = Math.random() * 1000
 export default [
   {
     url: '/api/getUserMenu', // 注意，这里只能是string格式
     method: 'get',
+    timeout,
     response: () => {
       return {
         code: 200,
@@ -162,7 +163,7 @@ export default [
                     path: '/mult-menu/first/second2',
                     children: [
                       {
-                        title: '二级菜单',
+                        title: '三级菜单',
                         name: 'mult-first-second-third',
                         icon: 'i-ep-menu',
                         path: '/mult-menu/first/second/third',
