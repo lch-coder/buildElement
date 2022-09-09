@@ -1,1 +1,0 @@
-import{d as o,aH as u,b as s,aI as l,aJ as c,h as a,a3 as d}from"./index.da91743c.js";const f=o({name:"redirect",setup(){const r=u(),t=s();l(()=>{let{fullPath:e,query:n}=r;e=e.replace("/redirect",""),t.replace({path:e,query:n})})},render(){return c(a(d,null,null),{},a("div",null,null))}});export{f as default};
