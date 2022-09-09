@@ -38,7 +38,7 @@ onMounted(() => {
     </div>
     <div text-center pt-100px>
       <div>
-        <span font-600 text-4xl class="color-p">BulidAdmin</span>
+        <span font-600 text-4xl class="color-p">Build Element</span>
       </div>
       <div text-sm mt-sm mb-4xl class="color-s">基于 Vue3 + Ts + Element Plus 的后台管理系统</div>
     </div>
