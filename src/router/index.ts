@@ -13,17 +13,23 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'login',
+    meta: {
+      title: '登录',
+    },
     component: () => import('@/views/user/login.vue'),
   },
   {
     path: '/redirect/:path*',
     name: 'redirect',
+    meta: {
+      title: '重定向',
+    },
     component: () => import('@/layouts/redirect/redirect.vue'),
   },
 ]
 
 const router = createRouter({
-  history: createWebHistory('/buildElement/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

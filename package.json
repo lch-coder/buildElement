@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --port 8888"
   },
   "dependencies": {
     "@better-scroll/core": "^2.4.2",
