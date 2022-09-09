@@ -8,10 +8,8 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BetterScroll: typeof import('./components/betterScroll.vue')['default']
-    DarkModeContainer: typeof import('./components/darkModeContainer.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
-    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']

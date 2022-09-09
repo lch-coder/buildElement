@@ -2,7 +2,7 @@
 import { useMenuStore } from '@/store'
 const menuStore = useMenuStore()
 const route = useRoute()
-const menu = ref()
+const menuList = ref([])
 /**
  * 获取树节点路径
  * @param {*} curKey 树节点标识的值
@@ -66,10 +66,10 @@ const getPathByKey = (curKey: string, data: any) => {
 // */
 
 onMounted(() => {
-  menu.value = getPathByKey(route.name as string, menuStore.menuList)
+  menuList.value = getPathByKey(route.name as string, menuStore.menuList)
 })
 </script>
 
 <template>
-  <MenuBox v-if="menu" :menuList="menu" :hierarchy="1"></MenuBox>
+  <MenuBox v-if="menuList.length > 0" :menuList="menuList" :hierarchy="100"></MenuBox>
 </template>
