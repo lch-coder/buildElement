@@ -1,7 +1,7 @@
 <template>
   <span class="tab__icon" ref="hoverRef">
     <transition name="tab__icon-fade">
-      <i i-ion:ios-close-circle v-if="isHovered" class="tab__icon-close"></i>
+      <i i-ion-ios-close-circle v-if="isHovered" class="tab__icon-close"></i>
       <i i-ion-ios-close v-else class="tab__icon-close"></i>
     </transition>
   </span>

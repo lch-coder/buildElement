@@ -18,7 +18,7 @@ export default [
             children: [
               {
                 title: '工作台',
-                icon: '',
+                icon: 'i-icon-park-outline-workbench',
                 name: 'workplace',
                 path: '/dashboard/workplace',
                 component: 'dashboard/workplace.vue',
@@ -32,7 +32,7 @@ export default [
               },
               {
                 title: 'monaco-editor编辑器',
-                icon: '',
+                icon: 'i-gala-editor',
                 cache: true,
                 name: 'editor',
                 path: '/dashboard/editor',

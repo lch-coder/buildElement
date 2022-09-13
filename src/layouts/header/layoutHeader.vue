@@ -30,16 +30,12 @@ function onLogout() {
 
       <div v-if="menu.isDrawer" i-ep-expand class="text-xl ml-2" />
     </div>
-
     <div flex-1 />
     <el-space>
       <template v-if="!menu.isDrawer">
         <div class="right-item" @click="toggleDark()">
           <div v-if="isDark" i-ep-moon />
           <div v-else i-ep-sunny />
-        </div>
-        <div class="right-item">
-          <div i-ep-help />
         </div>
 
         <div class="right-item">

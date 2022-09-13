@@ -17,6 +17,7 @@ const iconPrefix = 'i-'
 export default defineConfig({
   shortcuts: [],
   variants: [
+    // 以下配置是为了可以直接使用标签 <i-ep-edit />
     {
       match: s => {
         if (s.startsWith(iconPrefix)) {
@@ -55,6 +56,7 @@ export default defineConfig({
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
+  // 添加以下配置, safelist 是预生成 i-ep-xxx 的样式,不管代码有没有使用这个图标
   safelist: [
     ...Object.keys(epIcons.icons.icons).map(name => `${iconPrefix}${epIcons.icons.prefix}-${name}`),
     'bg-purple-100',
@@ -66,6 +68,8 @@ export default defineConfig({
     'bg-purple-700',
     'bg-purple-800',
     'bg-purple-900',
+    'i-icon-park-outline-workbench',
+    'i-gala-editor',
   ],
   theme: {
     colors: {
