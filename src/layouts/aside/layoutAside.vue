@@ -1,17 +1,41 @@
 <script setup lang="ts">
 import { useMenuStore, useAppStore } from '@/store'
+import { Imenu } from '@/typings'
 import menuTree from './menuTree.vue'
 
 const appStore = useAppStore()
 const { siderCollapse, siderWidth } = storeToRefs(appStore)
 const menuStore = useMenuStore()
+
+/**
+ * 过滤掉需要隐藏的菜单
+ * @param menuList
+ */
+const filterMenu = (menuList: Imenu[]) => {
+  if (!menuList || !menuList.length) {
+    return
+  }
+  return menuList
+    .filter((item: Imenu) => {
+      return !item.hidden
+    })
+    .map((item: Imenu) => {
+      if (item.children) {
+        item.children = filterMenu(item.children)
+      }
+      return item
+    })
+}
+const realMenuList = computed(() => {
+  return filterMenu(menuStore.menuList)
+})
 </script>
 
 <template>
   <div class="layout-aside" bg-bgColor transition-all duration-300 ease-in-out>
     <el-scrollbar height="100%">
       <el-menu :default-active="$route.path" :collapse="siderCollapse" h-full>
-        <menuTree :menus="menuStore.menuList" />
+        <menuTree :menus="realMenuList" />
       </el-menu>
     </el-scrollbar>
     <div class="collapse">
