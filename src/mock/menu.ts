@@ -180,7 +180,7 @@ export default [
             icon: 'i-ep-flag',
             name: 'permission',
             path: '/permission',
-            component: 'dashboard/workplace.vue',
+            component: '',
           },
         ],
       }

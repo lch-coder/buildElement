@@ -1,17 +1,19 @@
 <script lang="ts" setup>
 import { useMenuStore } from '@/store'
+import { Imenu } from '@/typings'
 const menuStore = useMenuStore()
 const route = useRoute()
-const menuList = ref([])
+const menuList = ref<Imenu[]>([])
+
 /**
  * 获取树节点路径
  * @param {*} curKey 树节点标识的值
  * @param {array} data 树
  * @returns {array} result 存放搜索到的树节点到顶部节点的路径节点
  */
-const getPathByKey = (curKey: string, data: any) => {
+const getPathByKey = (curKey: string, data: Imenu[]) => {
   /** 存放搜索到的树节点到顶部节点的路径节点 */
-  let result: any = []
+  let result: Imenu[] = []
   /**
    * 路径节点追踪
    * @param {*} curKey 树节点标识的值
@@ -19,7 +21,7 @@ const getPathByKey = (curKey: string, data: any) => {
    * @param {*} data 树
    * @returns array
    */
-  let traverse = (curKey: string, path: any, data: any) => {
+  let traverse = (curKey: string, path: Imenu[], data: Imenu[]) => {
     // 树为空时，不执行函数
     if (data.length === 0) {
       return
@@ -48,22 +50,6 @@ const getPathByKey = (curKey: string, data: any) => {
   // 返回找到的树节点路径
   return result
 }
-
-// /** 对应树节点路径(数组形式) */
-// let pathList = getPathByKey(3100, treeData)
-// console.log('pathList', pathList) /*
-//   pathList [
-//   { name: '机车人', id: 3, children: [ [Object], [Object] ] },
-//   { name: '通天教主', id: 31, children: [ [Object] ] },
-//   { name: '孙悟空', id: 310, children: [ [Object] ] },
-//   { name: '猪八戒', id: 3100 }
-// ]
-// */
-// /** 对应树节点路径 */
-// let pathUrl = pathList.map(item => item.name).join(' / ')
-// console.log('pathUrl', pathUrl) /*
-//   机车人 / 通天教主 / 孙悟空 / 猪八戒
-// */
 
 onMounted(() => {
   menuList.value = getPathByKey(route.name as string, menuStore.menuList)

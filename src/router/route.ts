@@ -1,7 +1,7 @@
 import axios from 'axios'
 import router from './index'
 import { useMenuStore } from '@/store'
-import { Imenu, IRoute } from '@/typings/router'
+import { Imenu, IRoute } from '@/typings'
 import { RouteRecordRaw } from 'vue-router'
 
 //**为通配符,vite不支持require导入方式,故用import.meta.glob(vite动态导入)

@@ -1,4 +1,4 @@
-import { Imenu, IRoute } from '@/typings/router'
+import { Imenu, IRoute } from '@/typings'
 import { cloneDeep } from 'lodash-es'
 import { defineStore } from 'pinia'
 
