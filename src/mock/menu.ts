@@ -25,7 +25,7 @@ export default [
               },
               {
                 title: '监控页',
-                icon: '',
+                icon: 'i-ep-failed',
                 name: 'monitor',
                 path: '/dashboard/monitor',
                 component: 'dashboard/monitor.vue',
@@ -75,14 +75,14 @@ export default [
             children: [
               {
                 title: '成功页',
-                icon: '',
+                icon: 'i-ep-more-filled',
                 name: 'success',
                 path: '/result/success',
                 component: 'result/success.vue',
               },
               {
                 title: '失败页',
-                icon: '',
+                icon: 'i-ep-success-filled',
                 name: 'fail',
                 path: '/result/fail',
                 component: 'result/fail.vue',
@@ -124,14 +124,14 @@ export default [
             children: [
               {
                 title: 'Element Plus',
-                icon: '',
+                icon: 'i-ep-element-plus',
                 name: 'element-plus',
                 path: '/icons/element-plus',
                 component: 'icons/element-plus.vue',
               },
               {
                 title: '更多图标',
-                icon: '',
+                icon: 'i-ep-more-filled',
                 name: 'more',
                 path: 'https://icones.netlify.app/',
                 component: 'dashboard/workplace.vue',
