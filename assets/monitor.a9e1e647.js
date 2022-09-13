@@ -1,0 +1,1 @@
+import{d as o,aL as s,aM as a,o as t,g as n,a7 as r,j as u}from"./index.9da5bf1c.js";const m={"m-2":""},F=o({__name:"monitor",setup(c){const e=s(a(),"YYYY-MM-DD HH:mm:ss");return(_,i)=>(t(),n("div",m,"\u5F53\u524D\u65F6\u95F4\uFF1A"+r(u(e)),1))}});export{F as default};
