@@ -70,6 +70,8 @@ export default defineConfig({
     'bg-purple-900',
     'i-icon-park-outline-workbench',
     'i-gala-editor',
+    'i-ri-function-line',
+    'i-material-symbols-tab-outline',
   ],
   theme: {
     colors: {

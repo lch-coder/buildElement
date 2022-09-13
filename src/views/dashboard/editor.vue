@@ -1,16 +1,9 @@
 <script lang="ts" setup>
+import * as monaco from 'monaco-editor'
 const value = ref('let a = 234')
 const language = ref('javascript')
-const editorMounted = (editor: any) => {
+const editorMounted = (editor: monaco.editor.IStandaloneCodeEditor) => {
   console.log('editor实例加载完成', editor)
-}
-
-const router = useRouter()
-const refreshPage = () => {
-  router.replace({
-    path: '/redirect' + router.currentRoute.value.path,
-    query: router.currentRoute.value.query,
-  })
 }
 </script>
 
@@ -23,7 +16,6 @@ const refreshPage = () => {
       height="500px"
       @editor-mounted="editorMounted"
     ></monacoEditor>
-    <el-button @click="refreshPage" icon="i-ep-refresh-right">刷新</el-button>
   </div>
 </template>
 
