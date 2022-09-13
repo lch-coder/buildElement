@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { useMenuStore } from './menu'
+import { useMenuStore, useTabStore } from '@/store'
 import { setLocalStorage, removeLocalStorage } from '@/utils/storage'
 
 export interface UserState {
@@ -31,6 +31,11 @@ export const useUserStore = defineStore({
     },
     logout() {
       removeLocalStorage('token')
+      const tabStore = useTabStore()
+      const menuStore = useMenuStore()
+      tabStore.$reset()
+      menuStore.$reset()
+      this.$reset()
     },
   },
 })
