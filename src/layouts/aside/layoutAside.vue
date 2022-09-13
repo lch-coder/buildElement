@@ -15,7 +15,7 @@ const menuStore = useMenuStore()
       </el-menu>
     </el-scrollbar>
     <div class="collapse">
-      <el-icon :size="24" @click="appStore.setSiderCollapse(!siderCollapse)">
+      <el-icon :size="22" @click="appStore.setSiderCollapse(!siderCollapse)">
         <div v-if="siderCollapse" i-ep-expand />
         <div v-else i-ep-fold />
       </el-icon>
