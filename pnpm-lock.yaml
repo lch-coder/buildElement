@@ -24,7 +24,6 @@ specifiers:
   eslint-plugin-vue: ^9.1.1
   lodash-es: ^4.17.21
   mockjs: ^1.1.0
-  monaco-editor: ^0.34.0
   nprogress: ^0.2.0
   pinia: ^2.0.14
   pinia-plugin-persistedstate: ^1.6.1
@@ -50,7 +49,6 @@ dependencies:
   axios: 0.27.2
   element-plus: 2.2.14_vue@3.2.37
   lodash-es: 4.17.21
-  monaco-editor: 0.34.0
   nprogress: 0.2.0
   pinia: 2.0.20_j6bzmzd4ujpabbp5objtwxyjp4
   pinia-plugin-persistedstate: 1.6.3_pinia@2.0.20
@@ -3658,10 +3656,6 @@ packages:
     dependencies:
       commander: 9.4.0
     dev: true
-
-  /monaco-editor/0.34.0:
-    resolution: {integrity: sha512-VF+S5zG8wxfinLKLrWcl4WUizMx+LeJrG4PM/M78OhcwocpV0jiyhX/pG6Q9jIOhrb/ckYi6nHnaR5OojlOZCQ==}
-    dev: false
 
   /mrmime/1.0.1:
     resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}

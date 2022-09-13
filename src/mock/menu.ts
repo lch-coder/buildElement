@@ -30,14 +30,6 @@ export default [
                 path: '/dashboard/monitor',
                 component: 'dashboard/monitor.vue',
               },
-              {
-                title: 'monaco-editor编辑器',
-                icon: 'i-gala-editor',
-                cache: true,
-                name: 'editor',
-                path: '/dashboard/editor',
-                component: 'dashboard/editor.vue',
-              },
             ],
           },
           {
