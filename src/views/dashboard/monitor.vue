@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-const date = Date.now() 
+const now = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss')
 </script>
 
 <template>
-  <div>Monitor - {{ date }}</div>
+  <div m-2>当前时间：{{ now }}</div>
 </template>

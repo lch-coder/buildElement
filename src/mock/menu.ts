@@ -25,7 +25,7 @@ export default [
               },
               {
                 title: '监控页',
-                icon: 'i-ep-failed',
+                icon: 'i-icon-park-twotone-monitor-camera',
                 name: 'monitor',
                 path: '/dashboard/monitor',
                 component: 'dashboard/monitor.vue',
@@ -67,14 +67,14 @@ export default [
             children: [
               {
                 title: '成功页',
-                icon: 'i-ep-more-filled',
+                icon: 'i-ep-success-filled',
                 name: 'success',
                 path: '/result/success',
                 component: 'result/success.vue',
               },
               {
                 title: '失败页',
-                icon: 'i-ep-success-filled',
+                icon: 'i-ep-failed',
                 name: 'fail',
                 path: '/result/fail',
                 component: 'result/fail.vue',

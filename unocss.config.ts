@@ -71,6 +71,7 @@ export default defineConfig({
     'i-icon-park-outline-workbench',
     'i-ri-function-line',
     'i-material-symbols-tab-outline',
+    'i-icon-park-twotone-monitor-camera',
   ],
   theme: {
     colors: {
