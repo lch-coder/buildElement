@@ -12,7 +12,7 @@ import { RouteRecordRaw } from 'vue-router'
  */
 const modules = import.meta.glob(`../views/**/*.vue`)
 
-const component404 = import('@/views/exception/404.vue')
+const component404 = () => import('@/views/exception/404.vue')
 
 const staticMenu: IRoute[] = []
 
