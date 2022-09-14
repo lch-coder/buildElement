@@ -45,6 +45,8 @@ export const initRoute = (list: Imenu[], dynamicMenu: IRoute[] = []) => {
     dynamicMenu.push({
       path: `${item.path}`,
       name: item.name,
+      // 这个写法在开发中可行，但是生产中不行
+      // component: () => import(`../views/${item.component}`),
       component: modules[`../views/${item.component}`] || component404,
       meta: {
         title: item.title,
