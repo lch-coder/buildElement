@@ -12,6 +12,7 @@
     "@unocss/reset": "^0.44.4",
     "@vueuse/core": "^8.7.5",
     "axios": "^0.27.2",
+    "dayjs": "^1.11.5",
     "element-plus": "^2.2.8",
     "lodash-es": "^4.17.21",
     "nprogress": "^0.2.0",

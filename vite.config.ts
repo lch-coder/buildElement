@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import dayjs from 'dayjs'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -22,6 +23,9 @@ export default defineConfig({
         additionalData: `@use "@/styles/theme.scss" as *;`,
       },
     },
+  },
+  define: {
+    __PKG_TIME__: JSON.stringify(dayjs().format('YYYY-MM-DD HH:mm:ss')),
   },
   plugins: [
     vue(),

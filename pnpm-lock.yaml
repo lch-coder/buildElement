@@ -17,6 +17,7 @@ specifiers:
   '@vue/eslint-config-prettier': ^7.0.0
   '@vueuse/core': ^8.7.5
   axios: ^0.27.2
+  dayjs: ^1.11.5
   element-plus: ^2.2.8
   eslint: ^8.19.0
   eslint-config-prettier: ^8.5.0
@@ -47,6 +48,7 @@ dependencies:
   '@unocss/reset': 0.44.7
   '@vueuse/core': 8.9.4_vue@3.2.37
   axios: 0.27.2
+  dayjs: 1.11.5
   element-plus: 2.2.14_vue@3.2.37
   lodash-es: 4.17.21
   nprogress: 0.2.0
