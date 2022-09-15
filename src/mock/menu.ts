@@ -205,6 +205,13 @@ export default [
             path: '/permission',
             component: '',
           },
+          {
+            title: '关于',
+            icon: 'i-material-symbols-bookmarks-outline',
+            name: 'about',
+            path: '/about',
+            component: 'about/index.vue',
+          },
         ],
       }
     },

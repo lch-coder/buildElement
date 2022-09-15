@@ -72,6 +72,7 @@ export default defineConfig({
     'i-ri-function-line',
     'i-material-symbols-tab-outline',
     'i-icon-park-twotone-monitor-camera',
+    'i-material-symbols-bookmarks-outline',
   ],
   theme: {
     colors: {
