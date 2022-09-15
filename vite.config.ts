@@ -7,7 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path'
 import Unocss from 'unocss/vite'
 import { viteMockServe } from 'vite-plugin-mock'
-import dayjs from 'dayjs'
+import { formatDate } from './src/utils/time'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +15,15 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
+    },
+  },
+  build: {
+    terserOptions: {
+      compress: {
+        keep_infinity: true, // 防止 Infinity 被压缩成 1/0，这可能会导致 Chrome 上的性能问题
+        drop_console: true, // 生产环境去除 console
+        drop_debugger: true, // 生产环境去除 debugger
+      },
     },
   },
   css: {
@@ -25,7 +34,7 @@ export default defineConfig({
     },
   },
   define: {
-    __PKG_TIME__: JSON.stringify(dayjs().format('YYYY-MM-DD HH:mm:ss')),
+    __PKG_TIME__: JSON.stringify(formatDate()),
   },
   plugins: [
     vue(),
