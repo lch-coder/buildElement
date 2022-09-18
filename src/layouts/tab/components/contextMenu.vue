@@ -127,7 +127,7 @@ const actionMap = new Map<string, () => void>([
   [
     'close-all',
     () => {
-      tabStore.clearAllTab(props.currentTab)
+      tabStore.clearAllTab()
     },
   ],
 ])
