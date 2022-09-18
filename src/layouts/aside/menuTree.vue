@@ -18,15 +18,9 @@
   </template>
 </template>
 <script setup lang="ts">
-export interface Menu {
-  title: string
-  path: string
-  icon?: string
-  children?: Menu[]
-  parent?: Menu | null
-}
+import { IMenu } from '@/typings'
 interface Props {
-  menus: Menu[]
+  menus: IMenu[]
 }
 const props = withDefaults(defineProps<Props>(), {
   menus: () => [],
@@ -35,7 +29,7 @@ const props = withDefaults(defineProps<Props>(), {
 const router = useRouter()
 const route = useRoute()
 
-const clickMenu = (menu: any) => {
+const clickMenu = (menu: IMenu) => {
   const { path } = menu
   if (path.indexOf('http') === 0) {
     window.open(path)

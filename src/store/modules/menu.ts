@@ -1,4 +1,4 @@
-import { Imenu, IRoute } from '@/typings'
+import { IMenu, IRoute } from '@/typings'
 import { cloneDeep } from 'lodash-es'
 import { defineStore } from 'pinia'
 
@@ -6,7 +6,7 @@ interface Menustate {
   /** 存路由列表 */
   cacheList: string[]
   /** 菜单列表 */
-  menuList: Imenu[]
+  menuList: IMenu[]
   /** 动态路由 */
   dynamicRouteList: IRoute[]
   /** 有权限的第一个菜单 */
@@ -24,7 +24,7 @@ export const useMenuStore = defineStore({
   getters: {},
   actions: {
     // 保存登录用户的菜单列表
-    setMenuList(menuList: Imenu[]) {
+    setMenuList(menuList: IMenu[]) {
       this.menuList = menuList
     },
 

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { useMenuStore, useTabStore } from '@/store'
 import { setLocalStorage, removeLocalStorage } from '@/utils/storage'
+import router from '@/router'
 
 export interface UserState {
   token: string
@@ -36,6 +37,7 @@ export const useUserStore = defineStore({
       tabStore.$reset()
       menuStore.$reset()
       this.$reset()
+      this.$router.removeRoute('layout')
     },
   },
 })

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import router from './index'
 import { useMenuStore } from '@/store'
-import { Imenu, IRoute } from '@/typings'
+import { IMenu, IRoute } from '@/typings'
 import { RouteRecordRaw } from 'vue-router'
 
 //**为通配符,vite不支持require导入方式,故用import.meta.glob(vite动态导入)
@@ -20,10 +20,10 @@ const staticMenu: IRoute[] = []
  * 获取菜单叶子节点，生成一维菜单数组
  *  @param menuList - 菜单列表
  */
-const getAllLeaf = (menuList: Imenu[]) => {
-  const result: Imenu[] = []
-  function getLeaf(menuList: Imenu[]) {
-    menuList.forEach((item: Imenu) => {
+const getAllLeaf = (menuList: IMenu[]) => {
+  const result: IMenu[] = []
+  function getLeaf(menuList: IMenu[]) {
+    menuList.forEach((item: IMenu) => {
       if (!item.children) {
         result.push(item)
       } else {
@@ -40,8 +40,8 @@ const getAllLeaf = (menuList: Imenu[]) => {
  *  @param list - 菜单叶子节点列表
  *  @param dynamicMenu - 根据菜单生成动态路由列表
  */
-export const initRoute = (list: Imenu[], dynamicMenu: IRoute[] = []) => {
-  list.forEach((item: Imenu) => {
+export const initRoute = (list: IMenu[], dynamicMenu: IRoute[] = []) => {
+  list.forEach((item: IMenu) => {
     dynamicMenu.push({
       path: `${item.path}`,
       name: item.name,
@@ -61,7 +61,7 @@ export const initRoute = (list: Imenu[], dynamicMenu: IRoute[] = []) => {
  * 根据菜单列表生成动态路由数据
  *  @param allMenuList - 菜单列表
  */
-const getDynamicMenu = (allMenuList: Imenu[]) => {
+const getDynamicMenu = (allMenuList: IMenu[]) => {
   const allMenu = getAllLeaf(allMenuList) //拿到当前路由所有的信息，解构成一维简单数组方便判断
   const dynamicMenu = initRoute(allMenu)
   return dynamicMenu

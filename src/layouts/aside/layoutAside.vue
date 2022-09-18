@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMenuStore, useAppStore } from '@/store'
-import { Imenu } from '@/typings'
+import { IMenu } from '@/typings'
 import menuTree from './menuTree.vue'
 
 const appStore = useAppStore()
@@ -11,15 +11,15 @@ const menuStore = useMenuStore()
  * 过滤掉需要隐藏的菜单
  * @param menuList
  */
-const filterMenu = (menuList: Imenu[]) => {
+const filterMenu = (menuList: IMenu[]) => {
   if (!menuList || !menuList.length) {
     return
   }
   return menuList
-    .filter((item: Imenu) => {
+    .filter((item: IMenu) => {
       return !item.hidden
     })
-    .map((item: Imenu) => {
+    .map((item: IMenu) => {
       if (item.children) {
         item.children = filterMenu(item.children)
       }

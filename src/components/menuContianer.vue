@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { useMenuStore } from '@/store'
-import { Imenu } from '@/typings'
+import { IMenu } from '@/typings'
 const menuStore = useMenuStore()
 const route = useRoute()
-const menuList = ref<Imenu[]>([])
+const menuList = ref<IMenu[]>([])
 
 /**
  * 获取树节点路径
@@ -11,9 +11,9 @@ const menuList = ref<Imenu[]>([])
  * @param {array} data 树
  * @returns {array} result 存放搜索到的树节点到顶部节点的路径节点
  */
-const getPathByKey = (curKey: string, data: Imenu[]) => {
+const getPathByKey = (curKey: string, data: IMenu[]) => {
   /** 存放搜索到的树节点到顶部节点的路径节点 */
-  let result: Imenu[] = []
+  let result: IMenu[] = []
   /**
    * 路径节点追踪
    * @param {*} curKey 树节点标识的值
@@ -21,7 +21,7 @@ const getPathByKey = (curKey: string, data: Imenu[]) => {
    * @param {*} data 树
    * @returns array
    */
-  let traverse = (curKey: string, path: Imenu[], data: Imenu[]) => {
+  let traverse = (curKey: string, path: IMenu[], data: IMenu[]) => {
     // 树为空时，不执行函数
     if (data.length === 0) {
       return

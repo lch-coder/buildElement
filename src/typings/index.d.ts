@@ -38,7 +38,7 @@ declare module 'vue-router' {
 }
 
 /** 后端返回的菜单结构 */
-interface Imenu {
+interface IMenu {
   /** 菜单标题 */
   title: string
   /** 授权标识（与路由name对应） */
@@ -56,5 +56,5 @@ interface Imenu {
   /** 菜单的排序 */
   sort?: number
   /** 子菜单 */
-  children?: Imenu[]
+  children?: IMenu[]
 }
