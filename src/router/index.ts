@@ -45,21 +45,14 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
   // token存在
   if (getLocalStorage('token')) {
     const menuStore = useMenuStore()
-    if (to.path === '/login') {
-      // 存在token并且跳转到登录页，默认跳转进项目有权限的第一个菜单
-      next({
-        path: menuStore.permissionMenu,
-      })
+    if (menuStore.menuList.length > 0) {
+      next()
     } else {
-      if (menuStore.menuList.length > 0) {
-        next()
-      } else {
-        await addRoutes()
-        next({
-          ...to,
-          replace: true,
-        })
-      }
+      await addRoutes()
+      next({
+        ...to,
+        replace: true,
+      })
     }
   } else {
     if (to.path !== '/login') {
