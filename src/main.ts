@@ -13,9 +13,17 @@ import 'uno.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 import '@/styles/scrollbar.scss'
 
-const app = createApp(App)
+async function setupApp() {
+  const app = createApp(App)
 
-setupStore(app)
-await setupRouter(app)
+  // store plugin: pinia
+  setupStore(app)
 
-app.mount('#app')
+  // vue router
+  await setupRouter(app)
+
+  // mount app
+  app.mount('#app')
+}
+
+setupApp()
