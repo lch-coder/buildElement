@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
 import { getLocalStorage } from '@/utils/storage'
 import { addRoutes } from './route'
+import { App } from 'vue'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css' // 注意必须要引入css样式文件
@@ -66,8 +67,13 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
 
 router.afterEach((to: RouteLocationNormalized) => {
   // 设置document title
-  useTitle((to.meta.title as string) + ' | Build Element')
+  useTitle((to.meta.title || '暂无标题') + ' | Build Element')
   NProgress.done() // 进度条结束
 })
+
+export async function setupRouter(app: App) {
+  app.use(router)
+  await router.isReady()
+}
 
 export default router
