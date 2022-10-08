@@ -3,9 +3,12 @@ import layoutHeader from './header/layoutHeader.vue'
 import layoutAside from './aside/layoutAside.vue'
 import layoutMain from './main/layoutMain.vue'
 import tabList from '@/layouts/tab/index.vue'
+import { fitScreen } from '@/composables'
 import { useAppStore } from '@/store'
 const appStore = useAppStore()
 const { siderWidth } = storeToRefs(appStore)
+
+fitScreen()
 </script>
 
 <template>

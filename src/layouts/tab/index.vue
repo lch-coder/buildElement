@@ -3,7 +3,7 @@
     <better-scroll
       ref="tabScroller"
       class="app-tab__scroller"
-      :options="{ scrollX: true, scrollY: false, click: false }"
+      :options="{ scrollX: true, scrollY: false, click: true }"
     >
       <buttonTab
         v-for="item in tabList"

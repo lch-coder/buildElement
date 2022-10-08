@@ -11,6 +11,8 @@ interface AppState {
   siderCollapse: boolean
   /** vertical-mix模式下 侧边栏的固定状态 */
   mixSiderFixed: boolean
+  /** 移动端下，菜单抽屉可见状态 */
+  isDrawer: boolean
 }
 
 export const useAppStore = defineStore('app', {
@@ -19,11 +21,13 @@ export const useAppStore = defineStore('app', {
     settingDrawerVisible: false,
     siderCollapse: false,
     mixSiderFixed: false,
+    isDrawer: false,
   }),
   getters: {
     /** 侧边栏宽度 */
     siderWidth(state) {
-      const { siderCollapse } = state
+      const { siderCollapse, isDrawer } = state
+      if (isDrawer) return '0px'
       if (siderCollapse) {
         return '64px'
       } else {
@@ -77,3 +81,7 @@ export const useAppStore = defineStore('app', {
     },
   },
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useAppStore, import.meta.hot))
+}

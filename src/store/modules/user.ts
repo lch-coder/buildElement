@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import { useMenuStore, useTabStore } from '@/store'
 import { setLocalStorage, removeLocalStorage } from '@/utils/storage'
-import router from '@/router'
 
 export interface UserState {
   token: string
@@ -41,3 +40,7 @@ export const useUserStore = defineStore({
     },
   },
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot))
+}

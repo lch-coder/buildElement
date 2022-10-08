@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import { useUserStore } from '@/store/modules/user'
+import { useUserStore, useAppStore } from '@/store'
 const userStore = useUserStore()
 const router = useRouter()
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
-const menu: any = {}
+const appStore = useAppStore()
 
 function onClickLogo() {
-  if (menu.isDrawer) {
-    menu.isCollapse = false
+  if (appStore.isDrawer) {
+    appStore.siderCollapse = false
   }
 }
 
@@ -27,12 +27,10 @@ function onLogout() {
     <div class="logo" @click="onClickLogo">
       <img src="/favicon.ico" />
       <span class="text-2xl ml-2" color-primary>Build Element</span>
-
-      <div v-if="menu.isDrawer" i-ep-expand class="text-xl ml-2" />
     </div>
     <div flex-1 />
     <el-space>
-      <template v-if="!menu.isDrawer">
+      <template v-if="!appStore.isDrawer">
         <div class="right-item" @click="toggleDark()">
           <div v-if="isDark" i-ep-moon />
           <div v-else i-ep-sunny />
@@ -57,7 +55,7 @@ function onLogout() {
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item> 个人设置 </el-dropdown-item>
-              <el-dropdown-item>个人中心</el-dropdown-item>
+              <el-dropdown-item> 个人中心 </el-dropdown-item>
               <el-dropdown-item divided @click="onLogout"> 退出登录 </el-dropdown-item>
             </el-dropdown-menu>
           </template>

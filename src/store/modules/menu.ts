@@ -61,3 +61,7 @@ export const useMenuStore = defineStore({
     },
   },
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useMenuStore, import.meta.hot))
+}

@@ -32,7 +32,7 @@ const realMenuList = computed(() => {
 </script>
 
 <template>
-  <div class="layout-aside" bg-bgColor transition-all duration-300 ease-in-out>
+  <div v-if="!appStore.isDrawer" class="layout-aside" bg-bgColor transition-all duration-300 ease-in-out>
     <el-scrollbar height="100%">
       <el-menu :default-active="$route.path" :collapse="siderCollapse" h-full>
         <menuTree :menus="realMenuList" />
@@ -45,6 +45,20 @@ const realMenuList = computed(() => {
       </el-icon>
     </div>
   </div>
+
+  <el-drawer
+    v-else
+    :model-value="!appStore.siderCollapse"
+    direction="ltr"
+    custom-class="layout-aside"
+    :with-header="false"
+    :size="214"
+    @update:model-value="appStore.siderCollapse = !$event"
+  >
+    <el-menu :default-active="$route.path" :collapse="siderCollapse" h-full>
+      <menuTree :menus="realMenuList" />
+    </el-menu>
+  </el-drawer>
 </template>
 
 <style lang="scss" scoped>
@@ -78,6 +92,14 @@ const realMenuList = computed(() => {
     .el-icon {
       cursor: pointer;
     }
+  }
+}
+</style>
+
+<style lang="scss">
+.layout-aside {
+  .el-drawer__body {
+    padding: 0;
   }
 }
 </style>
