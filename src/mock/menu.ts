@@ -61,6 +61,27 @@ export default [
             ],
           },
           {
+            title: '表格',
+            icon: 'i-tabler-table',
+            path: '/table',
+            children: [
+              {
+                title: '基础表格',
+                icon: 'i-tabler-table-alias',
+                name: 'basicTable',
+                path: '/table/basicTable',
+                component: 'table/basicTable.vue',
+              },
+              {
+                title: '多级表格',
+                icon: 'i-tabler-table-export',
+                name: 'multiTable',
+                path: '/table/multiTable',
+                component: 'table/multiTable.vue',
+              },
+            ],
+          },
+          {
             title: '结果页',
             icon: 'i-ep-reading',
             path: '/result',

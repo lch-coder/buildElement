@@ -73,6 +73,9 @@ export default defineConfig({
     'i-material-symbols-tab-outline',
     'i-icon-park-twotone-monitor-camera',
     'i-material-symbols-bookmarks-outline',
+    'i-tabler-table',
+    'i-tabler-table-alias',
+    'i-tabler-table-export',
   ],
   theme: {
     colors: {

@@ -7,6 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path'
 import Unocss from 'unocss/vite'
 import { viteMockServe } from 'vite-plugin-mock'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { formatDate } from './src/utils/time'
 
 // https://vitejs.dev/config/
@@ -64,6 +65,7 @@ export default defineConfig({
       prodEnabled: true, // 生产打包开关 // 这样可以控制关闭mock的时候不让mock打包到最终代码内
       injectCode: ` import { setupProdMockServer } from './mockProdServer'; setupProdMockServer(); `,
     }),
+    vueSetupExtend(),
   ],
   server: {
     host: '0.0.0.0',

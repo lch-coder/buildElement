@@ -50,6 +50,7 @@
     "vite": "^3.0.9",
     "vite-plugin-eslint": "^1.6.1",
     "vite-plugin-mock": "^2.9.6",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue-tsc": "^0.34.7"
   }
 }
