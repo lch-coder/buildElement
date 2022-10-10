@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@better-scroll/core": "^2.4.2",
+    "@types/ua-parser-js": "^0.7.36",
     "@unocss/reset": "^0.44.4",
     "@vueuse/core": "^8.7.5",
     "axios": "^0.27.2",
@@ -19,6 +20,7 @@
     "pinia": "^2.0.14",
     "pinia-plugin-persistedstate": "^1.6.1",
     "rollup": "^2.78.1",
+    "ua-parser-js": "^1.0.2",
     "vite-plugin-pwa": "^0.12.2",
     "vue": "^3.2.25",
     "vue-router": "^4.0.16"

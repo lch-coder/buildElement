@@ -1,6 +1,6 @@
 <template>
   <div class="z-table">
-    <el-table ref="table" loading="loading" :data="tableData" size="small" highlight-current-row v-bind="$attrs">
+    <el-table ref="table" loading="loading" :data="tableData" highlight-current-row v-bind="$attrs">
       <TableColumn v-for="item in tableColumns" :key="item.prop" :col="item">
         <template v-for="slot in Object.keys(customSlots)" #[slot]="scope">
           <slot :name="slot" v-bind="scope" />

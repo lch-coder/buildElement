@@ -3,7 +3,7 @@
     <better-scroll
       ref="tabScroller"
       class="app-tab__scroller"
-      :options="{ scrollX: true, scrollY: false, click: true }"
+      :options="{ scrollX: true, scrollY: false, click: canClick }"
     >
       <buttonTab
         v-for="item in tabList"
@@ -35,6 +35,7 @@
 import { useTabStore, useAppStore } from '@/store'
 import buttonTab from './components/buttonTab.vue'
 import contextMenu from './components/contextMenu.vue'
+import { getDeviceInfo } from '@/utils/system'
 
 const appStore = useAppStore()
 const { siderWidth } = storeToRefs(appStore)
@@ -46,6 +47,9 @@ const handleRefresh = () => {
     loading.value = false
   }, 1000)
 }
+
+const deviceInfo = getDeviceInfo()
+const canClick = Boolean(deviceInfo.device.type)
 
 const tabStore = useTabStore()
 const { tabList, activeTab } = storeToRefs(tabStore)
