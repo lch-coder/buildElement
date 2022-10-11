@@ -8,3 +8,5 @@ declare module '*.vue' {
 
 // 打包时间
 declare const __PKG_TIME__: string
+
+declare module 'xlsx-style-hzx'

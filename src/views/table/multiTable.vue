@@ -1,4 +1,5 @@
 <script setup lang="ts" name="multiTable">
+import { exportToExcel } from '@/utils/excel'
 const state = reactive({
   loading: false,
   tableData: [
@@ -95,10 +96,14 @@ const state = reactive({
 const handleClick = (row: any) => {
   console.log('click', row)
 }
+const exportMultiTable = () => {
+  exportToExcel(state.tableData, state.tableColumns, { filename: '多级表格' })
+}
 </script>
 
 <template>
   <div m-2>
+    <el-button mb-2 float-right type="primary" @click="exportMultiTable">导出</el-button>
     <ZTable :loading="state.loading" :table-data="state.tableData" :table-columns="state.tableColumns">
       <template #edit="{ scope }">
         <el-button link type="primary" size="small" @click="handleClick(scope.row)">Detail</el-button>

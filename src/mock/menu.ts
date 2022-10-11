@@ -1,10 +1,8 @@
 import { MockMethod } from 'vite-plugin-mock'
-let timeout = Math.random() * 1000
 export default [
   {
     url: '/api/getUserMenu', // 注意，这里只能是string格式
     method: 'get',
-    timeout,
     response: () => {
       return {
         code: 200,
