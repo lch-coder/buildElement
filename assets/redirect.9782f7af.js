@@ -1,1 +1,0 @@
-import{d as o,aI as u,aJ as l,h as a,l as s,a0 as c,aK as d}from"./index.437dccbc.js";const f=o({name:"redirect",setup(){const r=d(),t=s();u(()=>{let{fullPath:e,query:n}=r;e=e.replace("/redirect",""),t.replace({path:e,query:n})})},render(){return l(a(c,null,null),{},a("div",null,null))}});export{f as default};
