@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@better-scroll/core": "^2.4.2",
+    "@iconify/tools": "^2.1.0",
+    "@iconify/utils": "^2.0.1",
     "@types/ua-parser-js": "^0.7.36",
     "@unocss/reset": "^0.44.4",
     "@vueuse/core": "^8.7.5",

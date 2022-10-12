@@ -9,7 +9,8 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-
+import { compareColors, stringToColor } from '@iconify/utils/lib/colors'
+import { importDirectory, parseColors, runSVGO, deOptimisePaths } from '@iconify/tools'
 import epIcons from '@iconify-json/ep'
 
 const iconPrefix = 'i-'
@@ -45,6 +46,53 @@ export default defineConfig({
         width: '1.2em',
         'vertical-align': 'text-bottom',
       },
+      collections: {
+        // Loading icon set
+        'custom-svg': async () => {
+          // Load icons
+          const iconSet = await importDirectory('src/icons/svg', {
+            prefix: 'svg',
+          })
+
+          // Clean up each icon
+          await iconSet.forEach(async name => {
+            const svg = iconSet.toSVG(name)!
+
+            // Change color to `currentColor`
+            const blackColor = stringToColor('black')!
+
+            await parseColors(svg, {
+              defaultColor: 'currentColor',
+              callback: (attr, colorStr, color) => {
+                // Change black to 'currentColor'
+                if (color && compareColors(color, blackColor)) {
+                  return 'currentColor'
+                }
+
+                switch (color?.type) {
+                  case 'none':
+                  case 'current':
+                    return color
+                }
+
+                throw new Error(`Unexpected color "${colorStr}" in attribute ${attr}`)
+              },
+            })
+
+            // Optimise
+            runSVGO(svg)
+
+            // Update paths for compatibility with old software
+            await deOptimisePaths(svg)
+
+            // Update icon in icon set
+            iconSet.fromSVG(name, svg)
+          })
+
+          // Export as IconifyJSON
+          return iconSet.export()
+        },
+      },
     }),
     presetTypography(),
     presetWebFonts({
@@ -76,6 +124,7 @@ export default defineConfig({
     'i-tabler-table',
     'i-tabler-table-alias',
     'i-tabler-table-export',
+    'i-custom-svg-element',
   ],
   theme: {
     colors: {
