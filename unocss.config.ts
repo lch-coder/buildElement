@@ -124,7 +124,6 @@ export default defineConfig({
     'i-tabler-table',
     'i-tabler-table-alias',
     'i-tabler-table-export',
-    'i-custom-svg-element',
   ],
   theme: {
     colors: {

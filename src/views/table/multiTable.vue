@@ -5,59 +5,59 @@ const state = reactive({
   tableData: [
     {
       date: '2016-05-03',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      zip: 200333,
     },
     {
       date: '2016-05-02',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      zip: 200333,
     },
     {
       date: '2016-05-04',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      zip: 200333,
     },
     {
       date: '2016-05-01',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      zip: 200333,
     },
     {
       date: '2016-05-08',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      zip: 200333,
     },
     {
       date: '2016-05-06',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      zip: 200333,
     },
     {
       date: '2016-05-07',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      zip: 200333,
     },
   ],
   tableColumns: [
@@ -67,7 +67,7 @@ const state = reactive({
     },
     {
       prop: 'Delivery Info',
-      label: 'Delivery Info',
+      label: '配送信息',
       children: [
         {
           prop: 'name',
@@ -75,12 +75,12 @@ const state = reactive({
         },
         {
           prop: 'Address Info',
-          label: 'Address Info',
+          label: '地址信息',
           children: [
-            { prop: 'state', label: '状态' },
+            { prop: 'province', label: '省份' },
             { prop: 'city', label: '城市' },
             { prop: 'address', label: '地址' },
-            { prop: 'zip', label: 'Zip' },
+            { prop: 'zip', label: '邮编' },
           ],
         },
       ],
@@ -106,8 +106,8 @@ const exportMultiTable = () => {
     <el-button mb-2 float-right type="primary" @click="exportMultiTable">导出</el-button>
     <ZTable :loading="state.loading" :table-data="state.tableData" :table-columns="state.tableColumns">
       <template #edit="{ scope }">
-        <el-button link type="primary" size="small" @click="handleClick(scope.row)">Detail</el-button>
-        <el-button link type="primary" size="small">Edit</el-button>
+        <el-button link type="primary" size="small" @click="handleClick(scope.row)">详情</el-button>
+        <el-button link type="primary" size="small">编辑</el-button>
       </template>
     </ZTable>
   </div>
