@@ -17,11 +17,11 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  tooltipContent: '',
+  content: '',
   placement: 'bottom',
 })
 
-const disabled = computed(() => !Boolean(props.content))
+const disabled = computed(() => !props.content)
 </script>
 
 <style scoped></style>

@@ -3,11 +3,13 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import ElementPlus from 'unplugin-element-plus/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path'
 import Unocss from 'unocss/vite'
 import { viteMockServe } from 'vite-plugin-mock'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+import eslintPlugin from 'vite-plugin-eslint'
 import { formatDate } from './src/utils/time'
 
 // https://vitejs.dev/config/
@@ -56,6 +58,7 @@ export default defineConfig({
       dts: 'src/components.d.ts',
       include: [/\.vue$/, /\.vue\?vue/, /\.tsx$/, /\.md$/],
     }),
+    ElementPlus(),
     Unocss(),
     viteMockServe({
       supportTs: false,
@@ -66,6 +69,7 @@ export default defineConfig({
       injectCode: ` import { setupProdMockServer } from './mockProdServer'; setupProdMockServer(); `,
     }),
     vueSetupExtend(),
+    eslintPlugin(),
   ],
   server: {
     host: '0.0.0.0',

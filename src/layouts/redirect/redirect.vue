@@ -11,9 +11,7 @@ export default defineComponent({
       fullPath = fullPath.replace('/redirect', '')
       router.replace({ path: fullPath, query })
     })
-  },
-  render() {
-    return h(<></>, {}, <div></div>)
+    return () => <div></div>
   },
 })
 </script>

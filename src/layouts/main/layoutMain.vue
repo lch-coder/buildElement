@@ -9,7 +9,7 @@ const { cacheList } = storeToRefs(menuStore)
   <router-view v-slot="{ Component, route }">
     <transition name="el-fade-in" mode="out-in" appear>
       <keep-alive :include="cacheList">
-        <component v-if="appStore.reloadFlag" :is="Component" :key="route.fullPath" />
+        <component :is="Component" v-if="appStore.reloadFlag" :key="route.fullPath" />
       </keep-alive>
     </transition>
   </router-view>

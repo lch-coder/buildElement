@@ -1,7 +1,7 @@
 <template>
   <template v-for="menu in menus">
     <template v-if="menu.children && menu.children.length > 0">
-      <el-sub-menu :index="menu.path" :key="menu.path">
+      <el-sub-menu :key="menu.path" :index="menu.path">
         <template #title>
           <el-icon><i :class="menu.icon"></i></el-icon>
           <span truncate>{{ menu.title }}</span>
@@ -10,7 +10,7 @@
       </el-sub-menu>
     </template>
     <template v-else>
-      <el-menu-item :index="menu.path" :key="menu.path" @click="clickMenu(menu)">
+      <el-menu-item :key="menu.path" :index="menu.path" @click="clickMenu(menu)">
         <el-icon><i :class="menu.icon"></i></el-icon>
         <span truncate>{{ menu.title }}</span>
       </el-menu-item>

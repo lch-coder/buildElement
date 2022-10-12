@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { icons as epIcons } from '@iconify-json/ep'
+import { ElMessage } from 'element-plus'
 const iconList = [...Object.keys(epIcons.icons).map(name => `i-${epIcons.prefix}-${name}`)]
 const iconStr = '<div class="i-ep-add-location"></div>'
 const { copy } = useClipboard()

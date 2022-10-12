@@ -9,6 +9,7 @@ import 'nprogress/nprogress.css' // 注意必须要引入css样式文件
 NProgress.configure({ showSpinner: false })
 
 import { useMenuStore } from '@/store/modules/menu'
+import { ElMessage } from 'element-plus'
 
 const routes: RouteRecordRaw[] = [
   {

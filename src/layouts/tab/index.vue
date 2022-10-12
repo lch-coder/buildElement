@@ -8,7 +8,7 @@
       <buttonTab
         v-for="item in tabList"
         :key="item.fullPath"
-        :isActive="activeTab === item.fullPath"
+        :is-active="activeTab === item.fullPath"
         :closable="tabList.length > 1"
         @close="handleCloseTab(item)"
         @click="handleClickTab(item)"
@@ -24,7 +24,7 @@
     </div>
     <contextMenu
       v-model:visible="menu.visible"
-      :currentTab="(menu.currentTab as Tab)"
+      :current-tab="(menu.currentTab as Tab)"
       :left="menu.style.left"
       :top="menu.style.top"
     ></contextMenu>
