@@ -1,6 +1,6 @@
 import { saveAs } from 'file-saver'
 import { WorkBook, WorkSheet } from 'xlsx'
-import { utils, SSF, write } from 'xlsx-style-hzx'
+import { utils, SSF, write } from 'xlsx-style-vite'
 import { IExcelConfig } from './type'
 
 interface CellInterface {
