@@ -48,7 +48,7 @@ export default defineConfig({
       },
       collections: {
         // Loading icon set
-        'custom-svg': async () => {
+        custom: async () => {
           // Load icons
           const iconSet = await importDirectory('src/icons/svg', {
             prefix: 'svg',
