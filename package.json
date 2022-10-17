@@ -13,7 +13,7 @@
     "@iconify/utils": "^2.0.1",
     "@types/ua-parser-js": "^0.7.36",
     "@unocss/reset": "^0.44.4",
-    "@vueuse/core": "^8.7.5",
+    "@vueuse/core": "^8.9.4",
     "axios": "^0.27.2",
     "dayjs": "^1.11.5",
     "element-plus": "^2.2.8",
