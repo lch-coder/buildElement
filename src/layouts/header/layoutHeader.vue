@@ -26,7 +26,7 @@ function onLogout() {
   <el-header class="layout-header" height="48px" bg-bg-color transition-all duration-300 ease-in-out>
     <div class="logo" @click="onClickLogo">
       <el-icon :size="22">
-        <i-custom-element color-primary></i-custom-element>
+        <i i-custom-element color-primary></i>
       </el-icon>
       <span class="text-2xl ml-2" whitespace-nowrap color-primary>Build Element</span>
     </div>
