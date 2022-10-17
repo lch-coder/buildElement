@@ -23,7 +23,7 @@ function onLogout() {
 </script>
 
 <template>
-  <el-header class="layout-header" height="48px" bg-bgColor transition-all duration-300 ease-in-out>
+  <el-header class="layout-header" height="48px" bg-bg-color transition-all duration-300 ease-in-out>
     <div class="logo" @click="onClickLogo">
       <el-icon :size="22">
         <i-custom-element color-primary></i-custom-element>

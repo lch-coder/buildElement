@@ -2,7 +2,7 @@
   <teleport to="body">
     <transition name="el-zoom-in-center">
       <div class="dropdown-popper" :style="{ left, top }">
-        <ul ref="contextMenuRef" class="context-menu" v-if="visible">
+        <ul v-if="visible" ref="contextMenuRef" class="context-menu">
           <li
             v-for="item in options"
             :key="item.key"

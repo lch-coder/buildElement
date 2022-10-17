@@ -3,12 +3,12 @@
     <el-table-column
       :prop="col.prop"
       :label="col.label"
-      :width="col.width ? col.width : null"
-      :minWidth="col.minWidth ? col.minWidth : null"
-      :sortable="col.sortable ? col.sortable : null"
+      :width="col.width"
+      :min-width="col.minWidth"
+      :sortable="col.sortable"
       :fixed="col.fixed"
     >
-      <template v-slot:header>
+      <template #header>
         <template v-if="!col.headerSlot">
           <span>{{ col.label }}</span>
         </template>
