@@ -36,6 +36,7 @@ import { useTabStore, useAppStore } from '@/store'
 import buttonTab from './components/buttonTab.vue'
 import contextMenu from './components/contextMenu.vue'
 import { getDeviceInfo } from '@/utils/system'
+import { Tab } from '@/typings'
 
 const appStore = useAppStore()
 const { siderWidth } = storeToRefs(appStore)

@@ -7,7 +7,6 @@ module.exports = {
   },
   globals: {
     __PKG_TIME__: true,
-    Tab: true,
   },
   extends: [
     'vue-global-api',

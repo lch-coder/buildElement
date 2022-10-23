@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { useMenuStore } from '@/store'
+import { Tab } from '@/typings'
 
 interface TabState {
   /** 多页签数据 */

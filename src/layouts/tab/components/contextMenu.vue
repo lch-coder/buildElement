@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 import { useTabStore, useAppStore } from '@/store'
+import { Tab } from '@/typings'
 
 interface Props {
   /** 右键菜单可见性 */
