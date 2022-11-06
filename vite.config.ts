@@ -39,7 +39,7 @@ export default defineConfig({
     },
   },
   define: {
-    __PKG_TIME__: JSON.stringify(formatDate()),
+    __PKG_TIME__: JSON.stringify(formatDate(new Date())),
   },
   plugins: [
     vue(),
