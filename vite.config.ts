@@ -45,7 +45,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     visualizer({
-      open: true, //注意这里要设置为true，否则无效
+      // open: true, //注意这里要设置为true，否则无效
       gzipSize: true,
       brotliSize: true,
     }),
@@ -77,7 +77,7 @@ export default defineConfig({
     }),
     vueSetupExtend(),
     eslintPlugin(),
-    webUpdateNotice(),
+    webUpdateNotice({ logVersion: true, injectFileBase: '/' }),
   ],
   server: {
     host: '0.0.0.0',
