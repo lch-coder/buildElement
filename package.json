@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview --port 8888"
+    "preview": "vite preview --port 8888",
+    "eslint": "eslint src --fix --ext .js,.ts,.jsx,.tsx,.vue"
   },
   "dependencies": {
     "@better-scroll/core": "^2.4.2",

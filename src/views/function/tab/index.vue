@@ -20,7 +20,7 @@
         </template>
         <el-space direction="vertical" :size="12">
           <el-input v-model="value"></el-input>
-          <el-button @click="refreshPage" icon="i-ep-refresh-right">全局刷新</el-button>
+          <el-button icon="i-ep-refresh-right" @click="refreshPage">全局刷新</el-button>
         </el-space>
       </el-card>
     </el-space>

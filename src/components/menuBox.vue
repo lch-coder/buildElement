@@ -1,7 +1,7 @@
 <template>
   <div p-4 m-2 :class="`bg-purple-${currentHierarchy}`">
     <h2>{{ props?.menuList?.[0].title }}</h2>
-    <menuBox v-if="currentList.length > 0" :menuList="currentList" :hierarchy="currentHierarchy"></menuBox>
+    <menuBox v-if="currentList.length > 0" :menu-list="currentList" :hierarchy="currentHierarchy"></menuBox>
   </div>
 </template>
 
@@ -22,6 +22,6 @@ let currentHierarchy = props.hierarchy + 100
 
 <script lang="ts">
 export default {
-  name: 'menuBox',
+  name: 'MenuBox',
 }
 </script>

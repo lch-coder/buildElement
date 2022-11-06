@@ -57,5 +57,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <MenuBox v-if="menuList.length > 0" :menuList="menuList" :hierarchy="100"></MenuBox>
+  <MenuBox v-if="menuList.length > 0" :menu-list="menuList" :hierarchy="100"></MenuBox>
 </template>

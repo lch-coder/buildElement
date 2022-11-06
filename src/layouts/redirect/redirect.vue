@@ -2,7 +2,7 @@
 import { onBeforeMount, h } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 export default defineComponent({
-  name: 'redirect',
+  name: 'Redirect',
   setup() {
     const route = useRoute()
     const router = useRouter()
