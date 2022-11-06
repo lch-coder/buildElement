@@ -10,6 +10,7 @@ import Unocss from 'unocss/vite'
 import { viteMockServe } from 'vite-plugin-mock'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import eslintPlugin from 'vite-plugin-eslint'
+import { webUpdateNotice } from '@plugin-web-update-notification/vite'
 import { formatDate } from './src/utils/time'
 
 // https://vitejs.dev/config/
@@ -70,6 +71,7 @@ export default defineConfig({
     }),
     vueSetupExtend(),
     eslintPlugin(),
+    webUpdateNotice(),
   ],
   server: {
     host: '0.0.0.0',

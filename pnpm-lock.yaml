@@ -8,6 +8,7 @@ specifiers:
   '@iconify/json': ^2.1.106
   '@iconify/tools': ^2.1.0
   '@iconify/utils': ^2.0.1
+  '@plugin-web-update-notification/vite': ^0.5.2
   '@types/file-saver': ^2.0.5
   '@types/lodash-es': ^4.17.6
   '@types/node': ^18.0.0
@@ -82,6 +83,7 @@ devDependencies:
   '@babel/eslint-parser': 7.18.9_i2zlx7awpychpyuxyfseoqk6n4
   '@iconify-json/ep': 1.1.7
   '@iconify/json': 2.1.106
+  '@plugin-web-update-notification/vite': 0.5.2_vite@3.1.7
   '@types/file-saver': 2.0.5
   '@types/lodash-es': 4.17.6
   '@types/node': 18.7.13
@@ -1517,6 +1519,19 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+
+  /@plugin-web-update-notification/core/0.5.2:
+    resolution: {integrity: sha512-EY/zsN9XD0AghXpGKfyPQ3O4TPHgEYKvPqvCQ0FWA7Ub4cKTLEGdQkNGhDjc9WbaoTTla76LFSrJ6fzkabLkbA==}
+    dev: true
+
+  /@plugin-web-update-notification/vite/0.5.2_vite@3.1.7:
+    resolution: {integrity: sha512-yoVEk8JcWh+bRsVkCsDxYgS3ZqLTEDUZ3p+pwt9Ojors8U3ixRefsKE/gI7FiSZ8UigDBGEQDSFb7YqUO7NU7Q==}
+    peerDependencies:
+      vite: '>2.0.0-0'
+    dependencies:
+      '@plugin-web-update-notification/core': 0.5.2
+      vite: 3.1.7_sass@1.54.5
+    dev: true
 
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
