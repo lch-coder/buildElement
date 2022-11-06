@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import ElementPlus from 'unplugin-element-plus/vite'
@@ -43,6 +44,11 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    visualizer({
+      open: true, //注意这里要设置为true，否则无效
+      gzipSize: true,
+      brotliSize: true,
+    }),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
       dts: './src/auto-imports.d.ts',
