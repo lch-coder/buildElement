@@ -42,8 +42,11 @@ const getAllLeaf = (menuList: IMenu[]) => {
  */
 export const initRoute = (list: IMenu[], dynamicMenu: IRoute[] = []) => {
   list.forEach((item: IMenu) => {
+    if (item.path.indexOf('http') === 0) {
+      return
+    }
     dynamicMenu.push({
-      path: `${item.path}`,
+      path: item.path,
       name: item.name,
       // 这个写法在开发中可行，但是生产中不行
       // component: () => import(`../views/${item.component}`),
