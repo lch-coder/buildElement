@@ -215,6 +215,13 @@ export default [
                 hidden: true,
                 component: 'function/tab-multi-detail/index.vue',
               },
+              {
+                title: '主题设置',
+                icon: '',
+                name: 'setTheme',
+                path: '/function/setTheme',
+                component: 'function/setTheme/index.vue',
+              },
             ],
           },
           {
