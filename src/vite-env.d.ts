@@ -10,3 +10,5 @@ declare module '*.vue' {
 declare const __PKG_TIME__: string
 
 declare module 'xlsx-style-vite'
+declare module 'css-color-function'
+declare module '@erkelost/utils'
