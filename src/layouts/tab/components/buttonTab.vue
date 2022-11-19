@@ -45,4 +45,10 @@ function handleClose() {
 .tab-btn {
   padding: 8px 12px;
 }
+.el-button:hover {
+  color: var(--el-button-hover-text-color);
+  border-color: var(--el-button-hover-border-color);
+  background-color: var(--el-button-hover-bg-color);
+  outline: 0;
+}
 </style>
