@@ -31,6 +31,8 @@ interface Props {
   left: string
   /** 鼠标y坐标 */
   top: string
+  /** 当前的标签索引 */
+  index: number
 }
 
 type DropdownKey = 'reload-current' | 'close-current' | 'close-other' | 'close-left' | 'close-right' | 'close-all'
@@ -76,21 +78,25 @@ const options = computed<Option[]>(() => [
   {
     label: '关闭其他',
     key: 'close-other',
+    disabled: tabStore.tabList.length <= 1,
     icon: 'i-ant-design-column-width-outlined',
   },
   {
     label: '关闭左侧',
     key: 'close-left',
+    disabled: props.index <= 0,
     icon: 'i-mdi-format-horizontal-align-left',
   },
   {
     label: '关闭右侧',
     key: 'close-right',
+    disabled: props.index + 1 >= tabStore.tabList.length,
     icon: 'i-mdi-format-horizontal-align-right',
   },
   {
     label: '关闭所有',
     key: 'close-all',
+    disabled: tabStore.tabList.length <= 1,
     icon: 'i-ant-design-line-outlined',
   },
 ])

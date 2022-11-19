@@ -110,7 +110,6 @@ export const useTabStore = defineStore('tab', {
      * @param currentTab - 标签
      */
     clearAllTab() {
-      if (this.tabList.length <= 1) return
       const menuStore = useMenuStore()
       this.tabList = []
       this.setActiveTab(menuStore.permissionMenu)

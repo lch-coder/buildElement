@@ -6,13 +6,13 @@
       :options="{ scrollX: true, scrollY: false, click: canClick }"
     >
       <buttonTab
-        v-for="item in tabList"
+        v-for="(item, index) in tabList"
         :key="item.fullPath"
         :is-active="activeTab === item.fullPath"
         :closable="tabList.length > 1"
         @close="handleCloseTab(item)"
         @click="handleClickTab(item)"
-        @contextmenu.prevent="handleContextMenu($event, item)"
+        @contextmenu.prevent="handleContextMenu($event, item, index)"
       >
         <span>{{ item.title }}</span>
       </buttonTab>
@@ -27,6 +27,7 @@
       :current-tab="(menu.currentTab as Tab)"
       :left="menu.style.left"
       :top="menu.style.top"
+      :index="menu.index"
     ></contextMenu>
   </div>
 </template>
@@ -62,6 +63,7 @@ interface MenuProps {
   visible: boolean
   currentTab?: Tab
   style: StyleProps
+  index: number
 }
 const menu = reactive<MenuProps>({
   visible: false,
@@ -70,13 +72,15 @@ const menu = reactive<MenuProps>({
     left: '0px',
     top: '0px',
   },
+  index: 0,
 })
 
-const handleContextMenu = (e: MouseEvent, item: Tab) => {
+const handleContextMenu = (e: MouseEvent, item: Tab, index: number) => {
   menu.visible = true
   menu.currentTab = item
   menu.style.left = e.pageX + 'px'
   menu.style.top = e.pageY + 'px'
+  menu.index = index
 }
 
 const route = useRoute()
