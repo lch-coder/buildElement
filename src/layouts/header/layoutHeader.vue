@@ -6,6 +6,8 @@ const router = useRouter()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
+const { isFullscreen, toggle } = useFullscreen()
+
 const appStore = useAppStore()
 
 function onClickLogo() {
@@ -28,22 +30,32 @@ function onLogout() {
       <el-icon :size="22">
         <i i-custom-element color-primary></i>
       </el-icon>
-      <span class="text-2xl ml-2" whitespace-nowrap color-primary>Build Element</span>
+      <template v-if="!appStore.isDrawer">
+        <span class="text-2xl ml-2" whitespace-nowrap color-primary>Build Element</span>
+      </template>
     </div>
     <div flex-1 />
-    <el-space>
-      <template v-if="!appStore.isDrawer">
-        <div class="right-item" @click="toggleDark()">
-          <div v-if="isDark" i-ep-moon />
-          <div v-else i-ep-sunny />
+    <el-space :size="0">
+      <hover-container content="全屏">
+        <div class="right-item" @click="toggle">
+          <i v-if="isFullscreen" i-gridicons-fullscreen-exit></i>
+          <i v-else i-gridicons-fullscreen></i>
         </div>
+      </hover-container>
+      <hoverContainer content="主题模式">
+        <div class="right-item" @click="toggleDark()">
+          <i v-if="isDark" i-ep-moon />
+          <i v-else i-ep-sunny />
+        </div>
+      </hoverContainer>
 
+      <hoverContainer content="消息通知">
         <div class="right-item">
           <el-badge :value="12">
-            <div i-ep-bell-filled />
+            <i i-ep-bell-filled />
           </el-badge>
         </div>
-      </template>
+      </hoverContainer>
 
       <div class="right-item">
         <el-dropdown>
@@ -51,7 +63,7 @@ function onLogout() {
             <el-avatar :size="30" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
             <div class="nickname">
               admin
-              <div i-ep-arrow-down ml-1 />
+              <i i-ep-arrow-down ml-1 />
             </div>
           </div>
           <template #dropdown>
