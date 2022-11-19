@@ -10,6 +10,7 @@
         :key="item.fullPath"
         :is-active="activeTab === item.fullPath"
         :closable="tabList.length > 1"
+        :icon="item.icon"
         @close="handleCloseTab(item)"
         @click="handleClickTab(item)"
         @contextmenu.prevent="handleContextMenu($event, item, index)"
@@ -88,7 +89,7 @@ watch(
   () => route.fullPath,
   () => {
     const currentTab: Tab = {
-      title: route.meta.title as string,
+      title: route.meta.title,
       fullPath: route.fullPath,
       icon: route.meta.icon as string,
       name: route.name as string,

@@ -1,5 +1,5 @@
 <template>
-  <el-button class="tab-btn" :class="{ 'is-active': isActive }">
+  <el-button class="tab-btn" :class="{ 'is-active': isActive }" :icon="icon">
     <span text-sm>
       <slot></slot>
     </span>
@@ -17,11 +17,14 @@ interface Props {
   isActive?: boolean
   /** 是否显示关闭图标 */
   closable?: boolean
+  /** 图标 */
+  icon?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   isActive: false,
   closable: true,
+  icon: '',
 })
 
 interface Emits {
@@ -45,10 +48,10 @@ function handleClose() {
 .tab-btn {
   padding: 8px 12px;
 }
-.el-button:hover {
-  color: var(--el-button-hover-text-color);
-  border-color: var(--el-button-hover-border-color);
-  background-color: var(--el-button-hover-bg-color);
+.el-button:focus {
+  color: var(--el-button-text-color);
+  border-color: var(--el-button-border-color);
+  background-color: var(--el-button-bg-color);
   outline: 0;
 }
 </style>

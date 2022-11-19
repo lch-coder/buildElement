@@ -54,6 +54,7 @@ export const initRoute = (list: IMenu[], dynamicMenu: IRoute[] = []) => {
       meta: {
         title: item.title,
         keepAlive: Boolean(item.cache),
+        icon: item.icon,
       },
     })
   })
