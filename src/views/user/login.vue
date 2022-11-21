@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import axios from 'axios'
 import { useUserStore } from '@/store'
 import { useMenuStore } from '@/store'
 import { addRoutes } from '@/router/route'
+import { loginApi } from '@/api/user'
 import { type FormInstance, type FormRules } from 'element-plus'
 
 const userStore = useUserStore()
@@ -14,6 +14,8 @@ const form = reactive({
   password: '123456',
 })
 
+const loading = ref<boolean>(false)
+
 const formRef = ref<FormInstance>()
 const rules: FormRules = {
   username: { required: true, message: '请输入用户名' },
@@ -23,7 +25,9 @@ const rules: FormRules = {
 const onLogin = () => {
   formRef.value?.validate(async valid => {
     if (valid) {
-      let { data } = await axios.get('/api/user/login')
+      loading.value = true
+      let { data } = await loginApi(form)
+      loading.value = false
       userStore.setUserInfo(data.data)
       await addRoutes()
       router.push({
@@ -69,7 +73,7 @@ const toggleDark = useToggle(isDark)
           <el-link ml-a type="primary" :underline="false"> 忘记密码? </el-link>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" class="w-100%" @click="onLogin"> 登录 </el-button>
+          <el-button :loading="loading" type="primary" class="w-100%" @click="onLogin"> 登录 </el-button>
         </el-form-item>
       </el-form>
     </div>

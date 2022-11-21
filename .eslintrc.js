@@ -8,6 +8,7 @@ module.exports = {
   globals: {
     __PKG_TIME__: true,
     ElMessage: true,
+    ElLoading: true,
   },
   extends: [
     'vue-global-api',

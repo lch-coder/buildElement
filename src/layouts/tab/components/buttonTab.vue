@@ -48,10 +48,4 @@ function handleClose() {
 .tab-btn {
   padding: 8px 12px;
 }
-.el-button:focus {
-  color: var(--el-button-text-color);
-  border-color: var(--el-button-border-color);
-  background-color: var(--el-button-bg-color);
-  outline: 0;
-}
 </style>
