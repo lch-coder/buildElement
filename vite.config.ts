@@ -76,7 +76,7 @@ export default defineConfig({
     }),
     vueSetupExtend(),
     eslintPlugin(),
-    webUpdateNotice({ logVersion: true, injectFileBase: '/' }),
+    webUpdateNotice({ logVersion: true }),
   ],
   server: {
     host: '0.0.0.0',
