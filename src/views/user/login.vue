@@ -4,6 +4,8 @@ import { useMenuStore } from '@/store'
 import { addRoutes } from '@/router/route'
 import { loginApi } from '@/api/user'
 import { type FormInstance, type FormRules } from 'element-plus'
+import CLOUDS from 'vanta/src/vanta.clouds'
+import * as THREE from 'three'
 
 const userStore = useUserStore()
 const menuStore = useMenuStore()
@@ -39,10 +41,25 @@ const onLogin = () => {
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+
+const vantaRef = ref<HTMLElement>()
+let vantaEffect: any
+onMounted(() => {
+  vantaEffect = CLOUDS({
+    el: vantaRef.value,
+    THREE: THREE,
+  })
+  console.log(vantaEffect, 'vantaEffect')
+})
+onBeforeUnmount(() => {
+  if (vantaEffect) {
+    vantaEffect.destroy()
+  }
+})
 </script>
 
 <template>
-  <div class="login">
+  <div ref="vantaRef" class="login">
     <div my-4 text-right>
       <el-button type="text" mr-5 @click="toggleDark()">
         <div :class="isDark ? 'i-ep-moon' : 'i-ep-sunny'" text-xl />
@@ -83,7 +100,7 @@ const toggleDark = useToggle(isDark)
 <style lang="scss" scoped>
 .login {
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   background-color: var(--el-bg-color-page);
   background-image: url(@/assets/login-bg.svg);
 }

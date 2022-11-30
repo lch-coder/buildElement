@@ -39,14 +39,15 @@ specifiers:
   pinia-plugin-persistedstate: ^1.6.1
   prettier: ^2.7.1
   qs: ^6.11.0
-  rollup: ^2.78.1
   rollup-plugin-visualizer: ^5.8.3
   sass: ^1.53.0
+  three: ^0.147.0
   typescript: ^4.5.4
   ua-parser-js: ^1.0.2
   unocss: ^0.43.0
   unplugin-auto-import: ^0.9.5
   unplugin-vue-components: 0.22.4
+  vanta: ^0.5.24
   vite: ^3.1.7
   vite-plugin-eslint: ^1.8.1
   vite-plugin-mock: ^2.9.6
@@ -77,8 +78,9 @@ dependencies:
   pinia: 2.0.20_j6bzmzd4ujpabbp5objtwxyjp4
   pinia-plugin-persistedstate: 1.6.3_pinia@2.0.20
   qs: 6.11.0
-  rollup: 2.78.1
+  three: 0.147.0
   ua-parser-js: 1.0.2
+  vanta: 0.5.24
   vite-plugin-pwa: 0.12.3_vite@3.1.7
   vue: 3.2.37
   vue-router: 4.1.4_vue@3.2.37
@@ -107,15 +109,15 @@ devDependencies:
   eslint-plugin-vue: 9.5.1_eslint@8.22.0
   mockjs: 1.1.0
   prettier: 2.7.1
-  rollup-plugin-visualizer: 5.8.3_rollup@2.78.1
+  rollup-plugin-visualizer: 5.8.3
   sass: 1.54.5
   typescript: 4.7.4
   unocss: 0.43.2_vite@3.1.7
-  unplugin-auto-import: 0.9.5_yeuzom2p42a7abx5jlewjgabnm
-  unplugin-vue-components: 0.22.4_jue77nsyxx6n2as3lddepfqxa4
+  unplugin-auto-import: 0.9.5_i632ioxgjxyoo376lcw4pa7kne
+  unplugin-vue-components: 0.22.4_vite@3.1.7+vue@3.2.37
   vite: 3.1.7_sass@1.54.5
   vite-plugin-eslint: 1.8.1_eslint@8.22.0+vite@3.1.7
-  vite-plugin-mock: 2.9.6_7qgdry7k4r3yy5acinw35jlru4
+  vite-plugin-mock: 2.9.6_mockjs@1.1.0+vite@3.1.7
   vite-plugin-vue-setup-extend: 0.4.0_vite@3.1.7
   vue-global-api: 0.4.1_vue@3.2.37
   vue-tsc: 0.34.17_typescript@4.7.4
@@ -1587,19 +1589,18 @@ packages:
       rollup: 2.78.1
     dev: false
 
-  /@rollup/plugin-node-resolve/13.3.0_rollup@2.78.1:
+  /@rollup/plugin-node-resolve/13.3.0:
     resolution: {integrity: sha512-Lus8rbUo1eEcnS4yTFKLZrVumLPY+YayBdWXgFSHYhTT2iJbMhoaaBL3xl5NCdeRytErGr8tZ0L71BMRmnlwSw==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       rollup: ^2.42.0
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.78.1
+      '@rollup/pluginutils': 3.1.0
       '@types/resolve': 1.17.1
       deepmerge: 4.2.2
       is-builtin-module: 3.2.0
       is-module: 1.0.0
       resolve: 1.22.1
-      rollup: 2.78.1
     dev: true
 
   /@rollup/plugin-replace/2.4.2_rollup@2.78.1:
@@ -1612,6 +1613,17 @@ packages:
       rollup: 2.78.1
     dev: false
 
+  /@rollup/pluginutils/3.1.0:
+    resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      '@types/estree': 0.0.39
+      estree-walker: 1.0.1
+      picomatch: 2.3.1
+    dev: true
+
   /@rollup/pluginutils/3.1.0_rollup@2.78.1:
     resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
     engines: {node: '>= 8.0.0'}
@@ -1622,6 +1634,7 @@ packages:
       estree-walker: 1.0.1
       picomatch: 2.3.1
       rollup: 2.78.1
+    dev: false
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -4667,7 +4680,7 @@ packages:
       terser: 5.15.0
     dev: false
 
-  /rollup-plugin-visualizer/5.8.3_rollup@2.78.1:
+  /rollup-plugin-visualizer/5.8.3:
     resolution: {integrity: sha512-QGJk4Bqe4AOat5AjipOh8esZH1nck5X2KFpf4VytUdSUuuuSwvIQZjMGgjcxe/zXexltqaXp5Vx1V3LmnQH15Q==}
     engines: {node: '>=14'}
     hasBin: true
@@ -4678,7 +4691,6 @@ packages:
         optional: true
     dependencies:
       open: 8.4.0
-      rollup: 2.78.1
       source-map: 0.7.4
       yargs: 17.6.2
     dev: true
@@ -4986,6 +4998,10 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
+  /three/0.147.0:
+    resolution: {integrity: sha512-LPTOslYQXFkmvceQjFTNnVVli2LaVF6C99Pv34fJypp8NbQLbTlu3KinZ0zURghS5zEehK+VQyvWuPZ/Sm8fzw==}
+    dev: false
+
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
@@ -5104,7 +5120,7 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /unimport/0.4.7_rollup@2.78.1+vite@3.1.7:
+  /unimport/0.4.7_vite@3.1.7:
     resolution: {integrity: sha512-V2Pbscd1VSdgWm1/OI2pjtydEOTjE7DDnHZKhpOq7bSUBc1i8+1f6PK8jI1lJ1plRDcSNr0DLtAmtU9NPkFQpw==}
     dependencies:
       '@rollup/pluginutils': 4.2.1
@@ -5116,7 +5132,7 @@ packages:
       pathe: 0.3.5
       scule: 0.2.1
       strip-literal: 0.4.0
-      unplugin: 0.7.2_rollup@2.78.1+vite@3.1.7
+      unplugin: 0.7.2_vite@3.1.7
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -5170,7 +5186,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /unplugin-auto-import/0.9.5_yeuzom2p42a7abx5jlewjgabnm:
+  /unplugin-auto-import/0.9.5_i632ioxgjxyoo376lcw4pa7kne:
     resolution: {integrity: sha512-CskZjMM+p/QZev7y4JgaAFrf63ui4VGS4HrDMm6VIiVjwnmQ0wPugo58GGhYa+W2Hyv6zGffYO6uYHfeVlDZDA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -5184,8 +5200,8 @@ packages:
       '@vueuse/core': 8.9.4_vue@3.2.37
       local-pkg: 0.4.2
       magic-string: 0.26.2
-      unimport: 0.4.7_rollup@2.78.1+vite@3.1.7
-      unplugin: 0.7.2_rollup@2.78.1+vite@3.1.7
+      unimport: 0.4.7_vite@3.1.7
+      unplugin: 0.7.2_vite@3.1.7
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -5193,7 +5209,7 @@ packages:
       - webpack
     dev: true
 
-  /unplugin-vue-components/0.22.4_jue77nsyxx6n2as3lddepfqxa4:
+  /unplugin-vue-components/0.22.4_vite@3.1.7+vue@3.2.37:
     resolution: {integrity: sha512-2rRZcM9OnJGXnYxQNfaceEYuPeVACcWySIjy8WBwIiN3onr980TmA3XE5pRJFt8zoQrUA+c46oyIq96noLqrEQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -5212,7 +5228,7 @@ packages:
       magic-string: 0.26.2
       minimatch: 5.1.0
       resolve: 1.22.1
-      unplugin: 0.9.5_rollup@2.78.1+vite@3.1.7
+      unplugin: 0.9.5_vite@3.1.7
       vue: 3.2.37
     transitivePeerDependencies:
       - esbuild
@@ -5222,7 +5238,7 @@ packages:
       - webpack
     dev: true
 
-  /unplugin/0.7.2_rollup@2.78.1+vite@3.1.7:
+  /unplugin/0.7.2_vite@3.1.7:
     resolution: {integrity: sha512-m7thX4jP8l5sETpLdUASoDOGOcHaOVtgNyrYlToyQUvILUtEzEnngRBrHnAX3IKqooJVmXpoa/CwQ/QqzvGaHQ==}
     peerDependencies:
       esbuild: '>=0.13'
@@ -5241,13 +5257,12 @@ packages:
     dependencies:
       acorn: 8.8.0
       chokidar: 3.5.3
-      rollup: 2.78.1
       vite: 3.1.7_sass@1.54.5
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
     dev: true
 
-  /unplugin/0.9.5_rollup@2.78.1+vite@3.1.7:
+  /unplugin/0.9.5_vite@3.1.7:
     resolution: {integrity: sha512-luraheyfxwtvkvHpsOvMNv7IjLdORTWKZp0gWYNHGLi2ImON3iIZOj464qEyyEwLA/EMt12fC415HW9zRpOfTg==}
     peerDependencies:
       esbuild: '>=0.13'
@@ -5266,7 +5281,6 @@ packages:
     dependencies:
       acorn: 8.8.0
       chokidar: 3.5.3
-      rollup: 2.78.1
       vite: 3.1.7_sass@1.54.5
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
@@ -5304,6 +5318,10 @@ packages:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
     dev: true
 
+  /vanta/0.5.24:
+    resolution: {integrity: sha512-fvieEbHy1ZS23zrcX+topzqAgA4Uct1enngOEWLFBgs9TtOf6RDFOYatH7KSVdrABzQDMCQ5myQy+nTSZZwLzg==}
+    dev: false
+
   /vite-plugin-eslint/1.8.1_eslint@8.22.0+vite@3.1.7:
     resolution: {integrity: sha512-PqdMf3Y2fLO9FsNPmMX+//2BF5SF8nEWspZdgl4kSt7UvHDRHVVfHvxsD7ULYzZrJDGRxR81Nq7TOFgwMnUang==}
     peerDependencies:
@@ -5317,14 +5335,14 @@ packages:
       vite: 3.1.7_sass@1.54.5
     dev: true
 
-  /vite-plugin-mock/2.9.6_7qgdry7k4r3yy5acinw35jlru4:
+  /vite-plugin-mock/2.9.6_mockjs@1.1.0+vite@3.1.7:
     resolution: {integrity: sha512-/Rm59oPppe/ncbkSrUuAxIQihlI2YcBmnbR4ST1RA2VzM1C0tEQc1KlbQvnUGhXECAGTaQN2JyasiwXP6EtKgg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       mockjs: '>=1.1.0'
       vite: '>=2.0.0'
     dependencies:
-      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.78.1
+      '@rollup/plugin-node-resolve': 13.3.0
       '@types/mockjs': 1.0.6
       chalk: 4.1.2
       chokidar: 3.5.3
