@@ -49,7 +49,6 @@ onMounted(() => {
     el: vantaRef.value,
     THREE: THREE,
   })
-  console.log(vantaEffect, 'vantaEffect')
 })
 onBeforeUnmount(() => {
   if (vantaEffect) {
