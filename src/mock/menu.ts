@@ -229,6 +229,13 @@ export default [
                 path: '/function/dragLayout',
                 component: 'function/drag/index.vue',
               },
+              {
+                title: 'echarts',
+                icon: 'i-ep-trend-charts',
+                name: 'echarts',
+                path: '/function/echarts',
+                component: 'function/echarts/index.vue',
+              },
             ],
           },
           {
