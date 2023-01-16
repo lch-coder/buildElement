@@ -217,10 +217,17 @@ export default [
               },
               {
                 title: '主题设置',
-                icon: '',
+                icon: 'i-ep-set-up',
                 name: 'setTheme',
                 path: '/function/setTheme',
                 component: 'function/setTheme/index.vue',
+              },
+              {
+                title: '拖拽',
+                icon: 'i-ep-rank',
+                name: 'dragLayout',
+                path: '/function/dragLayout',
+                component: 'function/drag/index.vue',
               },
             ],
           },

@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { setupStore } from './store'
 import { setupRouter } from './router'
+import { setupEcharts } from '@/utils/echarts'
+import VueGridLayout from 'vue-grid-layout'
 
 // normalize.css
 import '@unocss/reset/normalize.css'
@@ -21,6 +23,12 @@ async function setupApp() {
 
   // vue router
   await setupRouter(app)
+
+  // echarts
+  setupEcharts(app)
+
+  // 拖拽布局组件
+  app.use(VueGridLayout)
 
   // mount app
   app.mount('#app')
