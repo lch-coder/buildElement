@@ -11,6 +11,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import eslintPlugin from 'vite-plugin-eslint'
 import { webUpdateNotice } from '@plugin-web-update-notification/vite'
+import postcssPresetEnv from 'postcss-preset-env'
 import { formatDate } from './src/utils/time'
 
 // https://vitejs.dev/config/
@@ -35,6 +36,9 @@ export default defineConfig({
       scss: {
         additionalData: `@use "@/styles/theme.scss" as *;`,
       },
+    },
+    postcss: {
+      plugins: [postcssPresetEnv()],
     },
   },
   define: {
