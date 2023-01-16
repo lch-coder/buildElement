@@ -236,6 +236,13 @@ export default [
                 path: '/function/echarts',
                 component: 'function/echarts/index.vue',
               },
+              {
+                title: 'g2',
+                icon: 'i-ep-trend-charts',
+                name: 'g2',
+                path: '/function/g2',
+                component: 'function/g2/index.vue',
+              },
             ],
           },
           {

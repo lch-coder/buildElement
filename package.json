@@ -9,6 +9,7 @@
     "eslint": "eslint src --fix --ext .js,.ts,.jsx,.tsx,.vue"
   },
   "dependencies": {
+    "@antv/g2": "^4.2.8",
     "@better-scroll/core": "^2.4.2",
     "@erkelost/utils": "^1.0.2",
     "@iconify/tools": "^2.1.0",
