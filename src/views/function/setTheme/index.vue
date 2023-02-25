@@ -1,16 +1,20 @@
 <template>
   <div m-2>
-    <el-divider title-placement="center">颜色主题</el-divider>
+    <!-- <el-divider title-placement="center">颜色主题</el-divider>
     <el-row :gutter="35" w-310px>
       <el-col v-for="color in theme.themeColorList" :key="color" :span="4" class="flex-x-center">
         <ColorCheckbox :color="color" :checked="color === theme.themeColor" @click="setThemeColor(color)" />
       </el-col>
     </el-row>
     <el-divider title-placement="center">其他颜色</el-divider>
-    <el-color-picker v-model="theme.themeColor" />
+    <el-color-picker v-model="theme.themeColor" /> -->
+
+    <el-tag>更换主题色</el-tag>
+    <el-color-picker v-model="defaultTheme" @change="changeTheme" />
   </div>
 </template>
 <script lang="ts" setup>
+import { useElementPlusTheme } from '@/composables'
 import { writeNewStyle, createNewStyle } from '@/utils/theme'
 const theme = reactive({
   themeColor: '#1890FF',
@@ -55,4 +59,8 @@ watch(
     setEpThemeColor(theme.themeColor)
   }
 )
+
+const defaultTheme = ref('#405DFF')
+
+const { changeTheme } = useElementPlusTheme(defaultTheme.value)
 </script>
