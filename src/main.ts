@@ -14,9 +14,16 @@ import '@unocss/reset/tailwind.css'
 import 'uno.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 import '@/styles/scrollbar.scss'
+import { ElMessage, ElMessageBox, ElLoading } from 'element-plus'
 
 async function setupApp() {
   const app = createApp(App)
+
+  app.config.globalProperties.$message = ElMessage
+  app.config.globalProperties.$loading = ElLoading
+  app.config.globalProperties.$msgbox = ElMessageBox
+  app.config.globalProperties.$alert = ElMessageBox.alert
+  app.config.globalProperties.$confirm = ElMessageBox.confirm
 
   // store plugin: pinia
   setupStore(app)
