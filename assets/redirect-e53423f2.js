@@ -1,1 +1,0 @@
-import{q as a,N as u,y as n,O as s,d as l}from"./index-0c1b3d7d.js";const d=a({name:"Redirect",setup(){const t=u(),r=n();return s(()=>{let{fullPath:e,query:o}=t;e=e.replace("/redirect",""),r.replace({path:e,query:o})}),()=>l("div",null,null)}});export{d as default};

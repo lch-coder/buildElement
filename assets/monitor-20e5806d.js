@@ -1,1 +1,0 @@
-import{q as n,U as u,V as r,H as c,D as m,F as e,P as s,G as o}from"./index-0c1b3d7d.js";const i={"m-2":""},_={"m-2":""},D=n({__name:"monitor",setup(F){const t=u(r(),"YYYY-MM-DD HH:mm:ss"),a="2023-02-25 04:42:25";return(p,d)=>(c(),m("div",null,[e("div",i,"当前时间："+s(o(t)),1),e("div",_,"打包时间："+s(o(a)),1)]))}});export{D as default};
