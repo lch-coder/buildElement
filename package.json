@@ -9,7 +9,6 @@
     "eslint": "eslint src --fix --ext .js,.ts,.jsx,.tsx,.vue"
   },
   "dependencies": {
-    "@antv/g2": "^4.2.8",
     "@better-scroll/core": "^2.4.2",
     "@erkelost/utils": "^1.0.2",
     "@iconify/tools": "^2.1.0",
@@ -28,6 +27,7 @@
     "pinia": "^2.0.14",
     "pinia-plugin-persistedstate": "^1.6.1",
     "qs": "^6.11.0",
+    "splitpanes": "^3.1.5",
     "three": "^0.147.0",
     "ua-parser-js": "^1.0.2",
     "vanta": "^0.5.24",
