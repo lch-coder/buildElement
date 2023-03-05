@@ -14,4 +14,4 @@
       </div>
     </div>`}o.innerHTML=c,document.querySelector(`.${r}`).appendChild(o),T()}})();
 //# sourceMappingURL=webUpdateNoticeInjectScript.global.js.map
-        webUpdateCheck_checkAndNotice({"logVersion":true,"injectFileBase":"/"});
+        webUpdateCheck_checkAndNotice({"logVersion":true,"injectFileBase":"/buildElement/"});
