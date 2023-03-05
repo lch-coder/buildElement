@@ -243,6 +243,13 @@ export default [
                 path: '/function/splitpanes',
                 component: 'function/splitpanes/index.vue',
               },
+              {
+                title: '可编辑标签的文本域',
+                icon: 'i-ep-collection-tag',
+                name: 'tagTextarea',
+                path: '/function/tagTextarea',
+                component: 'function/tagTextarea/index.vue',
+              },
             ],
           },
           {
