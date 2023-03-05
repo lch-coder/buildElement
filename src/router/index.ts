@@ -3,6 +3,7 @@ import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
 import { getLocalStorage } from '@/utils/storage'
 import { addRoutes } from './route'
 import { App } from 'vue'
+import { getMenuListApi } from '@/api/menu'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css' // 注意必须要引入css样式文件
@@ -49,11 +50,17 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
     if (menuStore.menuList.length > 0) {
       next()
     } else {
-      await addRoutes()
-      next({
-        ...to,
-        replace: true,
-      })
+      let { data } = await getMenuListApi()
+      //获取后端返回的动态路由
+      if (data?.data?.length > 0) {
+        addRoutes(data.data)
+        next({
+          ...to,
+          replace: true,
+        })
+      } else {
+        next()
+      }
     }
   } else {
     if (to.path !== '/login') {

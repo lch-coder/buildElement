@@ -3,6 +3,7 @@ import { useUserStore } from '@/store'
 import { useMenuStore } from '@/store'
 import { addRoutes } from '@/router/route'
 import { loginApi } from '@/api/user'
+import { getMenuListApi } from '@/api/menu'
 import { type FormInstance, type FormRules } from 'element-plus'
 import CLOUDS from 'vanta/src/vanta.clouds'
 import * as THREE from 'three'
@@ -31,10 +32,16 @@ const onLogin = () => {
       let { data } = await loginApi(form)
       loading.value = false
       userStore.setUserInfo(data.data)
-      await addRoutes()
-      router.push({
-        path: menuStore.permissionMenu,
-      })
+      let { data: menuData } = await getMenuListApi()
+      //获取后端返回的动态路由
+      if (menuData?.data?.length > 0) {
+        addRoutes(menuData.data)
+        router.push({
+          path: menuStore.permissionMenu,
+        })
+      } else {
+        ElMessage.warning('没有菜单权限')
+      }
     }
   })
 }

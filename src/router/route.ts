@@ -107,16 +107,12 @@ const addRouter = (list: IRoute[]) => {
   addCacheList(list)
 }
 
-export const addRoutes = async function () {
-  await axios.get('/api/getUserMenu').then(({ data }) => {
-    //获取后端返回的动态路由
-    if (data.data && data.data.length) {
-      const menuStore = useMenuStore()
-      menuStore.setMenuList(data.data)
-      const dynamicMenu = getDynamicMenu(data.data || [])
-      menuStore.setPermissionMenu(dynamicMenu?.[0]?.path)
-      menuStore.setDynamicRouteList(dynamicMenu)
-      addRouter(dynamicMenu)
-    }
-  })
+export const addRoutes = (menuList: IMenu[]) => {
+  const menuStore = useMenuStore()
+  menuStore.setMenuList(menuList)
+  const dynamicMenu = getDynamicMenu(menuList || [])
+  menuStore.setPermissionMenu(dynamicMenu?.[0]?.path)
+  menuStore.setDynamicRouteList(dynamicMenu)
+  addRouter(dynamicMenu)
+  console.log(132)
 }
