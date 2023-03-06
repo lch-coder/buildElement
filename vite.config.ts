@@ -13,6 +13,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 import { webUpdateNotice } from '@plugin-web-update-notification/vite'
 import postcssPresetEnv from 'postcss-preset-env'
 import { formatDate } from './src/utils/time'
+import fullImportPlugin from './build/plugins/fullImportPlugin'
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
@@ -26,11 +27,22 @@ export default ({ mode }) => {
       },
     },
     build: {
+      target: 'es2015',
+      minify: 'terser',
       terserOptions: {
         compress: {
           keep_infinity: true, // 防止 Infinity 被压缩成 1/0，这可能会导致 Chrome 上的性能问题
           drop_console: true, // 生产环境去除 console
           drop_debugger: true, // 生产环境去除 debugger
+        },
+      },
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('element-plus/es')) {
+              return 'element-plus'
+            }
+          },
         },
       },
     },
@@ -65,9 +77,10 @@ export default ({ mode }) => {
         },
         resolvers: [ElementPlusResolver()],
       }),
+      fullImportPlugin(mode),
       Components({
         dirs: ['src/components'],
-        resolvers: [ElementPlusResolver()],
+        resolvers: mode !== 'development' ? ElementPlusResolver() : undefined,
         dts: 'src/components.d.ts',
         include: [/\.vue$/, /\.vue\?vue/, /\.tsx$/, /\.md$/],
       }),
