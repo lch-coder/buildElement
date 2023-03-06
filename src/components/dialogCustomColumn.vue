@@ -141,7 +141,6 @@ const handleConfirm = () => {
     item.children = sortBy(item.children, x => findIndex(sortByList, y => x.prop === y))
     return item.children.length > 0
   })
-  console.log(selectedList)
 
   emit('handle-confirm', selectedList)
 }

@@ -114,5 +114,4 @@ export const addRoutes = (menuList: IMenu[]) => {
   menuStore.setPermissionMenu(dynamicMenu?.[0]?.path)
   menuStore.setDynamicRouteList(dynamicMenu)
   addRouter(dynamicMenu)
-  console.log(132)
 }

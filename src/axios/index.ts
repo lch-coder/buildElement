@@ -60,7 +60,6 @@ const errorHandle = (status: number, other: any) => {
 let loading: any // 全局loading，避免show->hidden重复抖动
 let requestCount: number = 0 // 正在请求的数量
 const showLoading = (config: { text: string }) => {
-  // console.log(requestCount, loading)
   if (requestCount === 0 && !loading) {
     loading = ElLoading.service(config)
   }
