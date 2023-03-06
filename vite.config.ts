@@ -24,15 +24,6 @@ export default ({ mode }) => {
           drop_debugger: true, // 生产环境去除 debugger
         },
       },
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('element-plus/es')) {
-              return 'element-plus'
-            }
-          },
-        },
-      },
     },
     css: {
       preprocessorOptions: {
