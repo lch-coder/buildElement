@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { setupStore } from './store'
 import { setupRouter } from './router'
+import { setupDirectives } from './directives'
 import { setupEcharts } from '@/utils/echarts'
 import VueGridLayout from 'vue-grid-layout'
 
@@ -30,6 +31,9 @@ async function setupApp() {
 
   // vue router
   await setupRouter(app)
+
+  // vue directives
+  setupDirectives(app)
 
   // echarts
   setupEcharts(app)
