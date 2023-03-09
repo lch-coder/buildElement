@@ -1,7 +1,7 @@
 <template>
   <div m-2 w-500px>
     <div flex flex-wrap gap-2 my-2>
-      <el-tag v-for="item in entityFieldList" :key="item.code" :type="item.type as any" @click="insertEntity(item)">
+      <el-tag v-for="item in entityFieldList" :key="item.code" :type="item.type" @click="insertEntity(item)">
         {{ item.name }}</el-tag
       >
     </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts" name="multiTagTextarea">
-import { ref, type Ref } from 'vue'
+import { ref, type Ref, render } from 'vue'
 import CodeMirror from 'vue-codemirror6'
 import {
   MatchDecorator,
@@ -34,11 +34,12 @@ import {
   ViewPlugin,
   ViewUpdate,
 } from '@codemirror/view'
+import { ElTag } from 'element-plus'
 
 interface IEntityField {
   name: string
   code: string
-  type?: string
+  type?: '' | 'success' | 'warning' | 'info' | 'danger'
 }
 
 const entityFieldList: IEntityField[] = [
@@ -127,7 +128,7 @@ const entityFieldList: IEntityField[] = [
 ]
 
 const inputValue = ref()
-const value = ref('')
+const value = ref('{appInstanceId}{order_price}{order_number}{createdUserId}')
 
 const mirrorRef = ref()
 let editView = ref<EditorView>()
@@ -144,6 +145,13 @@ class PlaceholderWidget extends WidgetType {
   toDOM() {
     //创建tag元素
     const ele = document.createElement('span')
+    // let props = { type: this.data.type }
+    // const node = h(ElTag, props, { default: () => this.data.name })
+    // render(node, ele)
+    // ele.style.cssText = `
+    //         margin: 3px;
+    //         display: inline-block;
+    //       `
     ele.className = `el-tag ${this.data.type ? `el-tag--${this.data.type}` : ''} el-tag--light`
     ele.style.cssText = `
             margin: 3px;
