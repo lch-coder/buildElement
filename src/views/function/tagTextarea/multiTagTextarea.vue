@@ -127,7 +127,6 @@ const entityFieldList: IEntityField[] = [
   },
 ]
 
-const inputValue = ref()
 const value = ref('{appInstanceId}{order_price}{order_number}{createdUserId}')
 
 const mirrorRef = ref()
@@ -199,23 +198,6 @@ const placeholders = ViewPlugin.fromClass(
 
 function onReady({ view }: { view: Ref<EditorView> }) {
   editView.value = view.value
-}
-
-/***
- * 获取光标位置
- */
-function getCursor() {
-  return editView.value?.state.selection.main.head || 0
-}
-
-const insert = () => {
-  if (!inputValue.value) {
-    ElMessage.warning('请先输入文本')
-    return
-  }
-  mirrorRef.value.replaceSelection(`{${inputValue.value}}`)
-  editView.value?.focus()
-  inputValue.value = ''
 }
 
 /**
