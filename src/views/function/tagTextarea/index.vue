@@ -158,7 +158,7 @@ class PlaceholderWidget extends WidgetType {
 }
 
 const placeholderMatcher = new MatchDecorator({
-  regexp: /\{(.*?)\}/g,
+  regexp: /\{([\s\S]*?)\}/g,
   decoration: match => {
     let label = match[1]
     let select = entityFieldList.find(item => item.code === match[1])
