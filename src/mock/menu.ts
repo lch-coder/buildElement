@@ -250,6 +250,13 @@ export default [
                 path: '/function/tagTextarea',
                 component: 'function/tagTextarea/index.vue',
               },
+              {
+                title: '可编辑多种标签的文本域',
+                icon: 'i-ep-collection-tag',
+                name: 'multiTagTextarea',
+                path: '/function/multiTagTextarea',
+                component: 'function/tagTextarea/multiTagTextarea.vue',
+              },
             ],
           },
           {
