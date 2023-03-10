@@ -34,7 +34,7 @@ import {
   ViewPlugin,
   ViewUpdate,
 } from '@codemirror/view'
-import { ElTag } from 'element-plus'
+// import { ElTag } from 'element-plus'
 
 interface IEntityField {
   name: string
