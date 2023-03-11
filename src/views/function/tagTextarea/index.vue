@@ -190,6 +190,7 @@ const placeholders = ViewPlugin.fromClass(
 
 function onReady({ view }: { view: Ref<EditorView> }) {
   editView.value = view.value
+  editView.value.dispatch({ selection: { anchor: view.value.state.doc.length } })
 }
 
 /***
