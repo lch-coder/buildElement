@@ -1,6 +1,6 @@
 {
   "name": "build-element",
-  "private": true,
+  "private": false,
   "version": "0.0.3",
   "scripts": {
     "dev": "vite",
